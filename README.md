@@ -1,3 +1,3 @@
 # testgame
 
-https://github.com/marketplace/actions/godot-export
+https://github.com/marketplace/actions/godot-ci

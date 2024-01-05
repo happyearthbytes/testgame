@@ -32,31 +32,31 @@ jobs:
       #   run: wget https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_linux.x86_64.zip
       - name: find
         run: find .
-  export_game:
-    # Always use ubuntu-latest for this action
-    runs-on: ubuntu-latest
-    # Job name, can be anything
-    name: Export Game
-    steps:
-    - name: checkout
-      uses: actions/checkout@v4
-    - name: export game
-      id: export
-      # Use latest version (see releases for all versions)
-      uses: firebelley/godot-export@v5.2.0
-      with:
-        # Defining all the required inputs
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
-        relative_project_path: ./
-        archive_output: true
-    - name: create release
-      # uses: ncipollo/release-action@v1.12.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        generateReleaseNotes: true
-        tag: ${{ github.ref_name }}
-        artifacts: ${{ steps.export.outputs.archive_directory }}/*
+  # export_game:
+  #   # Always use ubuntu-latest for this action
+  #   runs-on: ubuntu-latest
+  #   # Job name, can be anything
+  #   name: Export Game
+  #   steps:
+  #   - name: checkout
+  #     uses: actions/checkout@v4
+  #   - name: export game
+  #     id: export
+  #     # Use latest version (see releases for all versions)
+  #     uses: firebelley/godot-export@v5.2.0
+  #     with:
+  #       # Defining all the required inputs
+  #       godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+  #       godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+  #       relative_project_path: ./
+  #       archive_output: true
+  #   - name: create release
+  #     # uses: ncipollo/release-action@v1.12.0
+  #     with:
+  #       token: ${{ secrets.GITHUB_TOKEN }}
+  #       generateReleaseNotes: true
+  #       tag: ${{ github.ref_name }}
+  #       artifacts: ${{ steps.export.outputs.archive_directory }}/*
 
       # - name: extract
       #   run: tar -xvf resources/Godot_v4.2.1-stable_linux.x86_64.zip
@@ -98,3 +98,28 @@ jobs:
 #     steps:
 #       - name: Every time
 #         run: echo "This step will always run"
+
+# run-name: Do a Secreter by @${{ github.actor }}
+# on:
+#   workflow_call:
+#     secrets:
+#       access-token:
+#         description: 'A token passed from the caller workflow'
+#         required: false
+
+# jobs:
+
+#   # passing the secret to a nested reusable workflow
+#   pass-secret-to-workflow:
+#     uses: ./.github/workflows/builder.yml
+#     secrets:
+#        token: ${{ secrets.access-token }}
+
+#   # pass-secret-to-action:
+#   #   runs-on: ubuntu-latest
+#   #   steps:
+#   #   # passing the secret to an action
+#   #     - name: Pass the received secret to an action
+#   #       uses: ./.github/actions/build.yml
+#   #       with:
+#   #         token: ${{ secrets.access-token }}
