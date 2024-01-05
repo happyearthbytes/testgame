@@ -11,6 +11,7 @@ env:
   PROJECT_PATH: physics_platformer
   ITCHIO_USERNAME: happyearthbytes
   ITCHIO_GAME: physics_platformer
+  BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
 jobs:
   # export-windows:
