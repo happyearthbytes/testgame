@@ -1,5 +1,4 @@
-class_name Bullet
-extends RigidBody2D
+class_name Bullet extends RigidBody2D
 
 var disabled = false
 
