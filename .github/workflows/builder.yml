@@ -1,0 +1,100 @@
+run-name: Do a build by @${{ github.actor }}
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: false
+        type: boolean
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: false
+
+jobs:
+  puller:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: wget
+      #   run: wget https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_linux.x86_64.zip
+      - name: find
+        run: find .
+  export_game:
+    # Always use ubuntu-latest for this action
+    runs-on: ubuntu-latest
+    # Job name, can be anything
+    name: Export Game
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+    - name: export game
+      id: export
+      # Use latest version (see releases for all versions)
+      uses: firebelley/godot-export@v5.2.0
+      with:
+        # Defining all the required inputs
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+        relative_project_path: ./
+        archive_output: true
+    - name: create release
+      # uses: ncipollo/release-action@v1.12.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
+
+      # - name: extract
+      #   run: tar -xvf resources/Godot_v4.2.1-stable_linux.x86_64.zip
+      # - name: find
+      #   run: find .
+  # builder:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Every time
+  #       id: s1
+  #       run: echo "This step will always run"
+  #     - name: outputter
+  #       id: o1
+  #       run: echo "the_thing=myoutput" >> "$GITHUB_OUTPUT"
+  #   outputs:
+  #     the_result: ${{ steps.o1.outputs.the_thing }}
+  # checker:
+  #   runs-on: ubuntu-latest
+  #   needs: builder
+  #   steps:
+  #     - name: Check output
+  #       id: c1
+  #       env:
+  #         BLD_RES: ${{needs.builder.outputs.the_result}}
+  #       run: echo "Got $BLD_RES"
+  # ctrtest:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: My first step
+  #       uses: docker://alpine:3.8
+
+
+# run-name: Do a thing by @${{ github.actor }}
+# on: push
+
+# jobs:
+#   alwayser:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Every time
+#         run: echo "This step will always run"
