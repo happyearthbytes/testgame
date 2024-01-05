@@ -9,8 +9,8 @@ env:
   # GODOT_VERSION: 3.3.4
   EXPORT_NAME: physics_platformer
   PROJECT_PATH: physics_platformer
-  ITCHIO_USERNAME: x
-  ITCHIO_GAME: x
+  ITCHIO_USERNAME: happyearthbytes
+  ITCHIO_GAME: physics_platformer
 
 jobs:
   # export-windows:
