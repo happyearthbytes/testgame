@@ -10,7 +10,7 @@ env:
   EXPORT_NAME: physics_platformer
   PROJECT_PATH: physics_platformer
   ITCH_USER: happyearthbytes
-  ITCH_GAME: physics_platformer
+  ITCH_GAME: physics-platformer
   BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
 
 jobs:
