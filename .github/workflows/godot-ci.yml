@@ -5,7 +5,7 @@ on:
       - "v*"
 
 env:
- GODOT_VERSION: 4.2.1
+  GODOT_VERSION: 4.2.1
   # GODOT_VERSION: 3.3.4
   EXPORT_NAME: physics_platformer
   PROJECT_PATH: physics_platformer
