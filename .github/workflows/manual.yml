@@ -30,16 +30,22 @@ jobs:
           lfs: true
       - name: Setup
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          cp -r /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
           cp -r /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-          cp -r /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      # cp -r /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      # mkdir -v -p ~/.local/share/godot/templates
+      # cp -r /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Web Build
         run: |
           mkdir -v -p build/web
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" ../build/web/index.html
+      - name: find_a
+        run: |
+          find /root/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: find_b
+        run: |
+          find /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable
       - name: List all files
         run: |
           find .
