@@ -9,6 +9,9 @@ env:
   # GODOT_VERSION: 3.3.4
   EXPORT_NAME: physics_platformer
   PROJECT_PATH: physics_platformer
+  ITCH_USER: happyearthbytes
+  ITCH_GAME: physics-platformer
+  BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
 
 jobs:
   # export-windows:
@@ -115,12 +118,21 @@ jobs:
         with:
           name: web
           path: build/web
-      - name: Install rsync 📚
+      - name: find
         run: |
-          apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+          find .
+      #- name: Install rsync 📚
+      # run: |
+      #   apt-get update && apt-get install -y rsync
+      #- name: Deploy to GitHub Pages 🚀
+      #  uses: JamesIves/github-pages-deploy-action@releases/v4
+      #  with:
+      #    branch: gh-pages # The branch the action should deploy to.
+      #    folder: build/web # The folder the action should deploy.
+      - name: itch 🚀
+        uses: manleydev/butler-publish-itchio-action@v1.0.3
+        env:
+          CHANNEL: web
+          PACKAGE: build/web
+          #VERSION: ${{ inputs.version_number }}
 # https://github.com/marketplace/actions/upload-github-pages-artifact
