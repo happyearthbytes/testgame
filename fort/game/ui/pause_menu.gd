@@ -2,6 +2,10 @@ extends Control
 
 class_name PauseMenu
 
+signal s_restart(enable : bool)
+signal s_main_menu(enable : bool)
+signal s_pause(enable : bool)
+
 var game_paused : bool = false:
 	get:
 		return game_paused
@@ -11,6 +15,7 @@ var game_paused : bool = false:
 			show()
 		else:
 			hide()
+		emit_signal("s_pause", game_paused)
 		get_tree().paused = game_paused
 
 func _input(event : InputEvent):
@@ -38,6 +43,11 @@ func _process(_delta):
 func _on_resume_pressed():
 	unpause()
 
-
 func _on_quit_game_pressed():
 	get_tree().quit()
+
+func _on_restart_pressed():
+	emit_signal("s_restart", true)
+
+func _on_main_menu_pressed():
+	emit_signal("s_main_menu", true)
