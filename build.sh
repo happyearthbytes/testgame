@@ -12,9 +12,11 @@ git init
 git add .
 git commit -m "commit for zip"
 popd
-git archive --format=zip -o "$outfile" --remote="$source_dir" HEAD
+git archive --format zip -o "$outfile" --remote="$source_dir" HEAD
 
 # Remove the zipped files
 pushd "$source_dir"
 rm $(ls -I $zipname )
 popd
+
+ls -lh $outfile
