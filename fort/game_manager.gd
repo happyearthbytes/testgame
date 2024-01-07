@@ -1,10 +1,8 @@
 extends Node2D
 
+class_name GameManager
 
-func pause():
-	get_tree().paused = true
-	#show()
-	#hide()
+@export var pause_menu : PauseMenu
 
 func run_on_web():
 	if OS.has_feature('web'):
@@ -18,14 +16,10 @@ func redirect():
 	var main_page = JavaScriptBridge.eval("top.location.href;")
 	if(direct_link != main_page):
 		JavaScriptBridge.eval("alert('Visit the game at: " + direct_link + "');")
-		pause()
+		pause_menu.pause()
 	
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	process_mode = Node.PROCESS_MODE_PAUSABLE
 	run_on_web()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
