@@ -18,7 +18,8 @@ universal = 13 x 21
 6x1 = die
 
 
-tools are x-flipped sprites of the backslash sword animation
+tool sprite = slash sprite
+tool animation = right to left
 
 
 
