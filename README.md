@@ -21,6 +21,10 @@ universal = 13 x 21
 tool sprite = slash sprite
 tool animation = right to left
 
+weapon sprite = slash sprite
+weapon animation = left to right
+
+
 
 
 
