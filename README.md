@@ -40,5 +40,24 @@ slashl p = 170 175
 slashd p = 183 187
 slashr p = 196 201
 
+slashu w = 1 6
+slashl w = 7 12
+slashd w = 13 18
+slashr w = 19 24
+
+
+
+slashu p = 162 157
+slashl p = 175 179
+slashd p = 187 183
+slashr p = 201 196
+
+slaslu t = 6 1
+slashl t = 12 7
+slashd t = 18 13
+slashr t = 24 19
+
+
+
 
 
