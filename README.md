@@ -10,4 +10,12 @@ top.location.assign(window.location.href)
 
 universal = 13 x 21
 
+7x4 = magic
+8x4
+9x4
+6x4
+13x4
+6x1
+
+
 
