@@ -11,11 +11,14 @@ top.location.assign(window.location.href)
 universal = 13 x 21
 
 7x4 = magic
-8x4
-9x4
-6x4
-13x4
-6x1
+8x4 = dig
+9x4 = walk
+6x4 = slash
+13x4 = bow
+6x1 = die
+
+
+
 
 
 
