@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://brfswe03dym7g"]
+
+[ext_resource type="FontFile" uid="uid://csw0a2dorbprd" path="res://fonts/pixel-pirate-font/PixelPirateRegular-PXYZ.ttf" id="1_77oju"]
+
+[resource]
+default_font = ExtResource("1_77oju")

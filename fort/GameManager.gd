@@ -5,8 +5,8 @@ class_name GameManager
 #@export var pause_menu : PauseMenu
 #@export var main_menu : MainMenu
 
-@onready var pause_menu = $Game/CanvasLayer/PauseMenu
-@onready var main_menu = $Game/CanvasLayer/MainMenu
+@onready var pause_menu = $Game/Theme/Menus/PauseMenu
+@onready var main_menu = $Game/Theme/Menus/MainMenu
 
 signal s_restart(enable : bool)
 signal s_main_menu(enable : bool)
@@ -44,14 +44,14 @@ func _input(event : InputEvent):
 func _on_pause(paused : bool):
 	game_paused = paused
 
-func _on_quit(enable : bool):
+func _on_quit(_enable : bool):
 	get_tree().quit()
 
-func _on_main_menu(enable : bool):
+func _on_main_menu(_enable : bool):
 	pause_menu.set_allowed(false)
 	main_menu.open_menu(true)
 
-func _on_restart(enable : bool):
+func _on_restart(_enable : bool):
 	game_paused = false
 
 ############################################

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgctrhlmjywnl"]
+
+[ext_resource type="PackedScene" uid="uid://ca6bqj8pew4k0" path="res://game/ui/pause_menu.tscn" id="1_jva4s"]
+[ext_resource type="Theme" uid="uid://brfswe03dym7g" path="res://game/ui/main_theme.tres" id="2_5knw5"]
+[ext_resource type="PackedScene" uid="uid://bbvoeh8stfcva" path="res://game/ui/main_menu.tscn" id="2_ib3lh"]
+
+[node name="Menus" type="CanvasLayer"]
+process_mode = 3
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_jva4s")]
+process_mode = 3
+theme = ExtResource("2_5knw5")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_ib3lh")]
+theme = ExtResource("2_5knw5")
