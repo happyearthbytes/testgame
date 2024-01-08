@@ -24,6 +24,7 @@ tool animation = right to left
 weapon sprite = slash sprite
 weapon animation = left to right
 
+reverse weapon slash is bugged. dont use.
 
 
 
