@@ -1,18 +1,13 @@
 extends Control
-#
-#class_name MainMenu
-#
-#func open_menu(enable: bool):
-	#if enable:
-		#show()
-	#else:
-		#hide()
-#
-## Called when the node enters the scene tree for the first time.
-#func _ready():
-	#pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass
+
+func open_menu(enable: bool):
+	if enable:
+		show()
+	else:
+		hide()
+
+func _ready():
+	hide()
+
+func _process(_delta):
+	pass

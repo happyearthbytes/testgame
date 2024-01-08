@@ -951,4 +951,3 @@ process_mode = 3
 process_mode = 3
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("8_la3aa")]
-visible = false

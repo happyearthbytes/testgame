@@ -48,6 +48,7 @@ func _on_quit(enable : bool):
 	get_tree().quit()
 
 func _on_main_menu(enable : bool):
+	pause_menu.set_allowed(false)
 	main_menu.open_menu(true)
 
 func _on_restart(enable : bool):
