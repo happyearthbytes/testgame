@@ -1,186 +1,597 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0y04unj8ogsn"]
+[gd_scene load_steps=53 format=3 uid="uid://d0y04unj8ogsn"]
 
 [ext_resource type="Script" path="res://game/character_body_2d.gd" id="1_1xguc"]
-[ext_resource type="Texture2D" uid="uid://h588bo7hhvvr" path="res://assets/Download5259.png" id="2_p6ain"]
+[ext_resource type="Texture2D" uid="uid://iq5yhq5n033c" path="res://assets/player/body/bodies/male/universal.png" id="2_xvd01"]
+[ext_resource type="Texture2D" uid="uid://c8yipvivvwtix" path="res://assets/player/weapon/sword/longsword/longsword.png" id="3_7g1sm"]
+[ext_resource type="AnimationLibrary" uid="uid://dhir5hxi7pahv" path="res://game/player/player_animations.res" id="3_7v4p1"]
+[ext_resource type="Texture2D" uid="uid://gkg1ly6vhepr" path="res://assets/player/tools/smash/background/axe.png" id="3_vqiar"]
+[ext_resource type="Texture2D" uid="uid://bpo4gncxc222" path="res://assets/player/head/heads/rabbit/universal.png" id="4_7i8lu"]
+[ext_resource type="Texture2D" uid="uid://diy4ffvkk7ub7" path="res://assets/player/tools/smash/foreground/axe.png" id="4_d7c3j"]
+[ext_resource type="Texture2D" uid="uid://r1q8ffy8co0l" path="res://assets/player/torso/jacket/collared/male/black.png" id="5_7ywfr"]
+[ext_resource type="Texture2D" uid="uid://bnbiaxqyw15lb" path="res://assets/player/weapon/sword/longsword/universal_behind/longsword.png" id="7_o543v"]
+[ext_resource type="Texture2D" uid="uid://c8qkjtd7ayd7r" path="res://assets/player/weapon/sword/longsword/attack_slash/longsword.png" id="8_cbyy7"]
+[ext_resource type="AnimationLibrary" uid="uid://c2w2gbw8oudky" path="res://game/player/weapon_animations.res" id="9_g4uqg"]
+[ext_resource type="Texture2D" uid="uid://bkyv4ncwsmbfn" path="res://assets/player/weapon/sword/longsword/attack_slash/behind/longsword.png" id="10_tjeu3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uawq"]
-radius = 7.0
-
-[sub_resource type="Animation" id="Animation_yl53p"]
+[sub_resource type="Animation" id="Animation_u4gd7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [48]
+"values": [104]
 }
 
-[sub_resource type="Animation" id="Animation_pcyo5"]
-resource_name = "idle_down"
-length = 0.4
-loop_mode = 1
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtpq7"]
+_data = {
+"RESET": SubResource("Animation_u4gd7")
+}
+
+[sub_resource type="Animation" id="Animation_68nxw"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [245, 246]
+"values": [85]
 }
 
-[sub_resource type="Animation" id="Animation_3lrv3"]
-resource_name = "idle_left"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [221, 222]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hinwn"]
+_data = {
+"RESET": SubResource("Animation_68nxw")
 }
 
-[sub_resource type="Animation" id="Animation_haypc"]
-resource_name = "idle_right"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [269, 270]
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uawq"]
+radius = 7.0
 
-[sub_resource type="Animation" id="Animation_n07jp"]
-resource_name = "idle_up"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [195, 194]
-}
-
-[sub_resource type="Animation" id="Animation_hhrfe"]
-resource_name = "walk_down"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [241, 242, 243, 244, 245, 246, 247, 248]
-}
-
-[sub_resource type="Animation" id="Animation_y72w1"]
-resource_name = "walk_left"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [217, 218, 219, 220, 221, 222, 223, 224]
-}
-
-[sub_resource type="Animation" id="Animation_f2l68"]
-resource_name = "walk_right"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [265, 266, 267, 268, 269, 270, 271, 272]
-}
-
-[sub_resource type="Animation" id="Animation_11yyh"]
+[sub_resource type="Animation" id="Animation_tufrj"]
 resource_name = "walk_up"
 length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
+tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 0
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [193, 194, 195, 196, 197, 198, 199, 200]
+"clips": PackedStringArray("player_animations/walk_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/walk_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/walk_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/walk_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/walk_up"),
+"times": PackedFloat32Array(0)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2cw5"]
+[sub_resource type="Animation" id="Animation_ibt2d"]
+resource_name = "walk_left"
+length = 0.8
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/walk_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/walk_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/walk_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/walk_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/walk_left"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4jie4"]
+resource_local_to_scene = true
+resource_name = "walk_down"
+length = 0.8
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/walk_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/walk_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/walk_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/walk_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/walk_down"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_l3kjk"]
+resource_name = "walk_right"
+length = 0.8
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/walk_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/walk_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/walk_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/walk_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/walk_right"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3ly2l"]
+resource_name = "weapon_up"
+length = 0.6
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kwcb4"]
+resource_name = "weapon_down"
+length = 0.6
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_smgfy"]
+resource_name = "weapon_left"
+length = 0.6
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_aupnt"]
+resource_name = "weapon_right"
+length = 0.6
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_up"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsklc"]
 _data = {
-"RESET": SubResource("Animation_yl53p"),
-"idle_down": SubResource("Animation_pcyo5"),
-"idle_left": SubResource("Animation_3lrv3"),
-"idle_right": SubResource("Animation_haypc"),
-"idle_up": SubResource("Animation_n07jp"),
-"walk_down": SubResource("Animation_hhrfe"),
-"walk_left": SubResource("Animation_y72w1"),
-"walk_right": SubResource("Animation_f2l68"),
-"walk_up": SubResource("Animation_11yyh")
+"walk_down": SubResource("Animation_4jie4"),
+"walk_left": SubResource("Animation_ibt2d"),
+"walk_right": SubResource("Animation_l3kjk"),
+"walk_up": SubResource("Animation_tufrj"),
+"weapon_down": SubResource("Animation_kwcb4"),
+"weapon_left": SubResource("Animation_smgfy"),
+"weapon_right": SubResource("Animation_aupnt"),
+"weapon_up": SubResource("Animation_3ly2l")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_itlaw"]
-animation = &"idle_down"
+animation = &"walk_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2biaf"]
-animation = &"idle_left"
+animation = &"walk_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyrnf"]
-animation = &"idle_right"
+animation = &"walk_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ji1k"]
-animation = &"idle_up"
+animation = &"walk_up"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kwgy2"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_itlaw")
@@ -219,6 +630,28 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_dr0em")
 blend_point_3/pos = Vector2(-1, 0)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w1h12"]
+animation = &"weapon_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k8dna"]
+animation = &"weapon_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qmnlw"]
+animation = &"weapon_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_je0ns"]
+animation = &"weapon_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wcdga"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_w1h12")
+blend_point_0/pos = Vector2(1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_k8dna")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_qmnlw")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_je0ns")
+blend_point_3/pos = Vector2(0, -0.8)
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8sjnk"]
 advance_mode = 2
 
@@ -229,41 +662,159 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cao10"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpmuk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjjvc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7clmv"]
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4w0w2"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c6dvw"]
+states/End/position = Vector2(900, 99.7449)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kwgy2")
-states/Idle/position = Vector2(416, 99.8519)
+states/Idle/position = Vector2(416.667, 99.9506)
 states/RESET/node = SubResource("AnimationNodeAnimation_2e3tm")
 states/RESET/position = Vector2(267.333, 183.185)
 states/Start/position = Vector2(130, 182.667)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_31gsp")
 states/Walk/position = Vector2(638.667, 113.778)
-transitions = ["RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_8sjnk"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8x2tk"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ca3a"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cao10")]
+states/Weapon/node = SubResource("AnimationNodeBlendSpace2D_wcdga")
+states/Weapon/position = Vector2(532, 260)
+transitions = ["RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_8sjnk"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8x2tk"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ca3a"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cao10"), "Walk", "Weapon", SubResource("AnimationNodeStateMachineTransition_gpmuk"), "Weapon", "Walk", SubResource("AnimationNodeStateMachineTransition_bjjvc"), "Idle", "Weapon", SubResource("AnimationNodeStateMachineTransition_7clmv"), "Weapon", "Idle", SubResource("AnimationNodeStateMachineTransition_4w0w2")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s682g"]
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_1xguc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -25)
-texture = ExtResource("2_p6ain")
-hframes = 24
-vframes = 57
-frame = 48
+[node name="player_sprites" type="Node2D" parent="."]
+position = Vector2(0, -27)
+
+[node name="weapon_b" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("7_o543v")
+hframes = 13
+vframes = 21
+frame = 156
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_b"]
+libraries = {
+"player_animations": ExtResource("3_7v4p1")
+}
+
+[node name="slash_b" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("10_tjeu3")
+hframes = 6
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_b"]
+libraries = {
+"weapon_animations": ExtResource("9_g4uqg")
+}
+
+[node name="body" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("2_xvd01")
+hframes = 13
+vframes = 21
+frame = 104
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/body"]
+libraries = {
+"": SubResource("AnimationLibrary_vtpq7"),
+"player_animations": ExtResource("3_7v4p1")
+}
+
+[node name="torso" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("5_7ywfr")
+hframes = 13
+vframes = 21
+frame = 156
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/torso"]
+libraries = {
+"player_animations": ExtResource("3_7v4p1")
+}
+
+[node name="head" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("4_7i8lu")
+hframes = 13
+vframes = 21
+frame = 85
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/head"]
+libraries = {
+"": SubResource("AnimationLibrary_hinwn"),
+"player_animations": ExtResource("3_7v4p1")
+}
+
+[node name="weapon_f" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("3_7g1sm")
+hframes = 13
+vframes = 21
+frame = 156
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_f"]
+libraries = {
+"player_animations": ExtResource("3_7v4p1")
+}
+
+[node name="slash_f" type="Sprite2D" parent="player_sprites"]
+texture = ExtResource("8_cbyy7")
+hframes = 6
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_f"]
+libraries = {
+"weapon_animations": ExtResource("9_g4uqg")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0uawq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_f2cw5")
-}
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f2cw5")
+"": SubResource("AnimationLibrary_jsklc")
 }
 tree_root = SubResource("AnimationNodeStateMachine_c6dvw")
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Walk/blend_position = Vector2(0, 0)
+parameters/Walk/blend_position = Vector2(-0.00379509, -0.00318468)
+parameters/Weapon/blend_position = Vector2(0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jsklc")
+}
+
+[node name="Equiped" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Equiped"]
+position = Vector2(0, -25)
+
+[node name="Background" type="Sprite2D" parent="Equiped/Area2D"]
+visible = false
+texture = ExtResource("3_vqiar")
+hframes = 6
+vframes = 4
+frame = 1
+
+[node name="Foreground" type="Sprite2D" parent="Equiped/Area2D"]
+visible = false
+texture = ExtResource("4_d7c3j")
+hframes = 6
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Equiped/Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_s682g")
