@@ -1,12 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://d0y04unj8ogsn"]
+[gd_scene load_steps=50 format=3 uid="uid://d0y04unj8ogsn"]
 
 [ext_resource type="Script" path="res://game/character_body_2d.gd" id="1_1xguc"]
 [ext_resource type="Texture2D" uid="uid://iq5yhq5n033c" path="res://assets/player/body/bodies/male/universal.png" id="2_xvd01"]
 [ext_resource type="Texture2D" uid="uid://c8yipvivvwtix" path="res://assets/player/weapon/sword/longsword/longsword.png" id="3_7g1sm"]
 [ext_resource type="AnimationLibrary" uid="uid://dhir5hxi7pahv" path="res://game/player/player_animations.res" id="3_7v4p1"]
-[ext_resource type="Texture2D" uid="uid://gkg1ly6vhepr" path="res://assets/player/tools/smash/background/axe.png" id="3_vqiar"]
 [ext_resource type="Texture2D" uid="uid://bpo4gncxc222" path="res://assets/player/head/heads/rabbit/universal.png" id="4_7i8lu"]
-[ext_resource type="Texture2D" uid="uid://diy4ffvkk7ub7" path="res://assets/player/tools/smash/foreground/axe.png" id="4_d7c3j"]
 [ext_resource type="Texture2D" uid="uid://r1q8ffy8co0l" path="res://assets/player/torso/jacket/collared/male/black.png" id="5_7ywfr"]
 [ext_resource type="Texture2D" uid="uid://bnbiaxqyw15lb" path="res://assets/player/weapon/sword/longsword/universal_behind/longsword.png" id="7_o543v"]
 [ext_resource type="Texture2D" uid="uid://c8qkjtd7ayd7r" path="res://assets/player/weapon/sword/longsword/attack_slash/longsword.png" id="8_cbyy7"]
@@ -275,7 +273,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_3ly2l"]
 resource_name = "weapon_up"
-length = 0.6
+length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -349,7 +347,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_kwcb4"]
 resource_name = "weapon_down"
-length = 0.6
+length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -423,7 +421,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_smgfy"]
 resource_name = "weapon_left"
-length = 0.6
+length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -497,7 +495,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_aupnt"]
 resource_name = "weapon_right"
-length = 0.6
+length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -595,13 +593,13 @@ animation = &"walk_up"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kwgy2"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_itlaw")
-blend_point_0/pos = Vector2(0, 0.9)
+blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_2biaf")
 blend_point_1/pos = Vector2(-1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_jyrnf")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_3ji1k")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -0.9)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2e3tm"]
@@ -659,39 +657,31 @@ advance_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ca3a"]
+reset = false
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cao10"]
+reset = false
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpmuk"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjjvc"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7clmv"]
-switch_mode = 1
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4w0w2"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c6dvw"]
 states/End/position = Vector2(900, 99.7449)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kwgy2")
-states/Idle/position = Vector2(416.667, 99.9506)
+states/Idle/position = Vector2(426.667, 112.382)
 states/RESET/node = SubResource("AnimationNodeAnimation_2e3tm")
 states/RESET/position = Vector2(267.333, 183.185)
 states/Start/position = Vector2(130, 182.667)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_31gsp")
-states/Walk/position = Vector2(638.667, 113.778)
+states/Walk/position = Vector2(638, 113.778)
 states/Weapon/node = SubResource("AnimationNodeBlendSpace2D_wcdga")
-states/Weapon/position = Vector2(532, 260)
+states/Weapon/position = Vector2(530.667, 260)
 transitions = ["RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_8sjnk"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8x2tk"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ca3a"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cao10"), "Walk", "Weapon", SubResource("AnimationNodeStateMachineTransition_gpmuk"), "Weapon", "Walk", SubResource("AnimationNodeStateMachineTransition_bjjvc"), "Idle", "Weapon", SubResource("AnimationNodeStateMachineTransition_7clmv"), "Weapon", "Idle", SubResource("AnimationNodeStateMachineTransition_4w0w2")]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s682g"]
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -704,7 +694,7 @@ position = Vector2(0, -27)
 texture = ExtResource("7_o543v")
 hframes = 13
 vframes = 21
-frame = 156
+frame = 111
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_b"]
 libraries = {
@@ -712,9 +702,11 @@ libraries = {
 }
 
 [node name="slash_b" type="Sprite2D" parent="player_sprites"]
+visible = false
 texture = ExtResource("10_tjeu3")
 hframes = 6
 vframes = 4
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_b"]
 libraries = {
@@ -737,7 +729,7 @@ libraries = {
 texture = ExtResource("5_7ywfr")
 hframes = 13
 vframes = 21
-frame = 156
+frame = 111
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/torso"]
 libraries = {
@@ -760,7 +752,7 @@ libraries = {
 texture = ExtResource("3_7g1sm")
 hframes = 13
 vframes = 21
-frame = 156
+frame = 111
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_f"]
 libraries = {
@@ -768,9 +760,11 @@ libraries = {
 }
 
 [node name="slash_f" type="Sprite2D" parent="player_sprites"]
+visible = false
 texture = ExtResource("8_cbyy7")
 hframes = 6
 vframes = 4
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_f"]
 libraries = {
@@ -796,25 +790,3 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_jsklc")
 }
-
-[node name="Equiped" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="Equiped"]
-position = Vector2(0, -25)
-
-[node name="Background" type="Sprite2D" parent="Equiped/Area2D"]
-visible = false
-texture = ExtResource("3_vqiar")
-hframes = 6
-vframes = 4
-frame = 1
-
-[node name="Foreground" type="Sprite2D" parent="Equiped/Area2D"]
-visible = false
-texture = ExtResource("4_d7c3j")
-hframes = 6
-vframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Equiped/Area2D"]
-visible = false
-shape = SubResource("RectangleShape2D_s682g")

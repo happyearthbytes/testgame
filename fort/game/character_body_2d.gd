@@ -4,18 +4,18 @@ extends CharacterBody2D
 @export var starting_direction : Vector2 = Vector2(0,0)
 
 @onready var animation_tree = $AnimationTree
-@onready var state_machine = animation_tree.get("parameters/playback")
+@onready var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 var use_weapon : bool = false :
 	set(use):
 		use_weapon = use
-		state_machine.travel("Weapon")
+		if use_weapon:
+			state_machine.travel("Weapon")
 	get:
 		return use_weapon
 
 func _input(event : InputEvent):
 	if(event.is_action_pressed("use_weapon")):
-		print("A")
 		use_weapon = true
 
 func _ready():
