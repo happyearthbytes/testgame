@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 100
+@export var move_speed : float = 50
 @export var starting_direction : Vector2 = Vector2(0,0)
 
 @onready var animation_tree = $AnimationTree
@@ -36,7 +36,6 @@ func set_animation_state():
 		state_machine.travel("Walk")
 	else:
 		state_machine.travel("Idle")
-	print(state_machine.get_current_node())
 
 func _physics_process(_delta):
 	var input_direction = Vector2(
@@ -44,8 +43,10 @@ func _physics_process(_delta):
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	).limit_length()
 	input_direction.normalized()
-
+	#use_weapon = Input.get_action_strength("use_weapon")
 	
 	velocity = input_direction * move_speed
 	update_animation_params(input_direction)
+	if state_machine.get_current_node() == "Weapon":
+		velocity /= 3
 	move_and_slide()
