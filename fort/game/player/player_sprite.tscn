@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://moqw1lc13yf2"]
+
+[node name="player_sprite" type="Sprite2D"]
+position = Vector2(0, -25)
+hframes = 13
+vframes = 21

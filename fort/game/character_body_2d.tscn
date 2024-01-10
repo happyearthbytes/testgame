@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d0y04unj8ogsn"]
+[gd_scene load_steps=57 format=3 uid="uid://d0y04unj8ogsn"]
 
 [ext_resource type="Script" path="res://game/character_body_2d.gd" id="1_1xguc"]
 [ext_resource type="Texture2D" uid="uid://iq5yhq5n033c" path="res://assets/player/body/bodies/male/universal.png" id="2_xvd01"]
@@ -51,60 +51,81 @@ _data = {
 "RESET": SubResource("Animation_68nxw")
 }
 
+[sub_resource type="Animation" id="Animation_x7vl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6ygy"]
+_data = {
+"RESET": SubResource("Animation_x7vl5")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uawq"]
 radius = 7.0
 
-[sub_resource type="Animation" id="Animation_tufrj"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_4jie4"]
+resource_local_to_scene = true
+resource_name = "walk_down"
 length = 0.8
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": PackedStringArray("player_animations/walk_up"),
+"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": PackedStringArray("player_animations/walk_up"),
+"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("player_animations/walk_up"),
+"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"clips": PackedStringArray("player_animations/walk_up"),
+"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": PackedStringArray("player_animations/walk_up"),
+"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 
@@ -114,7 +135,7 @@ length = 0.8
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -124,7 +145,7 @@ tracks/0/keys = {
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -134,7 +155,7 @@ tracks/1/keys = {
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -144,7 +165,7 @@ tracks/2/keys = {
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -154,66 +175,11 @@ tracks/3/keys = {
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("player_animations/walk_left"),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_4jie4"]
-resource_local_to_scene = true
-resource_name = "walk_down"
-length = 0.8
-tracks/0/type = "animation"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": PackedStringArray("player_animations/walk_down"),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": PackedStringArray("player_animations/walk_down"),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "animation"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": PackedStringArray("player_animations/walk_down"),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "animation"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": PackedStringArray("player_animations/walk_down"),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "animation"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"clips": PackedStringArray("player_animations/walk_down"),
 "times": PackedFloat32Array(0)
 }
 
@@ -223,7 +189,7 @@ length = 0.8
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -233,7 +199,7 @@ tracks/0/keys = {
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -243,7 +209,7 @@ tracks/1/keys = {
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -253,7 +219,7 @@ tracks/2/keys = {
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -263,7 +229,7 @@ tracks/3/keys = {
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -271,77 +237,57 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_3ly2l"]
-resource_name = "weapon_up"
-length = 0.3
+[sub_resource type="Animation" id="Animation_tufrj"]
+resource_name = "walk_up"
+length = 0.8
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/walk_up"),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/walk_up"),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/walk_up"),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/walk_up"),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "animation"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "animation"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/walk_up"),
 "times": PackedFloat32Array(0)
 }
 
@@ -351,71 +297,71 @@ length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "animation"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/path = NodePath("player_sprites/slash_f/slash_f")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
+"clips": PackedStringArray("weapon_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 tracks/6/type = "animation"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/path = NodePath("player_sprites/slash_b/slash_b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
+"clips": PackedStringArray("weapon_animations/weapon_down"),
 "times": PackedFloat32Array(0)
 }
 
@@ -425,71 +371,71 @@ length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": PackedStringArray("player_animations/weapon_up"),
+"clips": PackedStringArray("player_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "animation"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/path = NodePath("player_sprites/slash_f/slash_f")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
+"clips": PackedStringArray("weapon_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 tracks/6/type = "animation"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/path = NodePath("player_sprites/slash_b/slash_b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"clips": PackedStringArray("weapon_animations/weapon_up"),
+"clips": PackedStringArray("weapon_animations/weapon_left"),
 "times": PackedFloat32Array(0)
 }
 
@@ -499,7 +445,81 @@ length = 0.3
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sprites/body/AnimationPlayer")
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/slash_f")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/slash_b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/weapon_right"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3ly2l"]
+resource_name = "weapon_up"
+length = 0.3
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -509,7 +529,7 @@ tracks/0/keys = {
 tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player_sprites/weapon_f/AnimationPlayer")
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -519,7 +539,7 @@ tracks/1/keys = {
 tracks/2/type = "animation"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("player_sprites/torso/AnimationPlayer")
+tracks/2/path = NodePath("player_sprites/torso/torso")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -529,7 +549,7 @@ tracks/2/keys = {
 tracks/3/type = "animation"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("player_sprites/head/AnimationPlayer")
+tracks/3/path = NodePath("player_sprites/head/head")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -539,7 +559,7 @@ tracks/3/keys = {
 tracks/4/type = "animation"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("player_sprites/weapon_b/AnimationPlayer")
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -549,7 +569,7 @@ tracks/4/keys = {
 tracks/5/type = "animation"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("player_sprites/slash_f/AnimationPlayer")
+tracks/5/path = NodePath("player_sprites/slash_f/slash_f")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -559,7 +579,7 @@ tracks/5/keys = {
 tracks/6/type = "animation"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("player_sprites/slash_b/AnimationPlayer")
+tracks/6/path = NodePath("player_sprites/slash_b/slash_b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -567,8 +587,307 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_4f5rh"]
+resource_local_to_scene = true
+resource_name = "idle_up"
+length = 0.4
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/idle_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/idle_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/idle_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/idle_up"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/idle_up"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_cwbsx"]
+resource_local_to_scene = true
+resource_name = "idle_left"
+length = 0.4
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/idle_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/idle_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/idle_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/idle_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/idle_left"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4ddv1"]
+resource_local_to_scene = true
+resource_name = "idle_down"
+length = 0.4
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/idle_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/idle_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/idle_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/idle_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/idle_down"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kqw0j"]
+resource_local_to_scene = true
+resource_name = "idle_right"
+length = 0.4
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("player_animations/idle_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/idle_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/idle_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("player_animations/idle_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/idle_right"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_x4olk"]
+resource_name = "RESET"
+length = 0.3
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprites/body/body")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprites/weapon_f/weapon_f")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("player_animations/RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprites/torso/torso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("player_animations/RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sprites/head/head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player_sprites/weapon_b/weapon_b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("player_animations/RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player_sprites/slash_f/slash_f")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("RESET"),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player_sprites/slash_b/slash_b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("weapon_animations/RESET"),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jsklc"]
 _data = {
+"RESET": SubResource("Animation_x4olk"),
+"idle_down": SubResource("Animation_4ddv1"),
+"idle_left": SubResource("Animation_cwbsx"),
+"idle_right": SubResource("Animation_kqw0j"),
+"idle_up": SubResource("Animation_4f5rh"),
 "walk_down": SubResource("Animation_4jie4"),
 "walk_left": SubResource("Animation_ibt2d"),
 "walk_right": SubResource("Animation_l3kjk"),
@@ -579,31 +898,32 @@ _data = {
 "weapon_up": SubResource("Animation_3ly2l")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_itlaw"]
-animation = &"walk_down"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t4dgy"]
+animation = &"idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2biaf"]
-animation = &"walk_left"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rv7ot"]
+animation = &"idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyrnf"]
-animation = &"walk_right"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wiggh"]
+animation = &"idle_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ji1k"]
-animation = &"walk_up"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnt5m"]
+animation = &"idle_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kwgy2"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_itlaw")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_2biaf")
-blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_jyrnf")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_3ji1k")
-blend_point_3/pos = Vector2(0, -0.9)
+blend_point_0/node = SubResource("AnimationNodeAnimation_t4dgy")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_rv7ot")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wiggh")
+blend_point_2/pos = Vector2(-1.1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_qnt5m")
+blend_point_3/pos = Vector2(1.1, 0)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2e3tm"]
-animation = &"RESET"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnqy1"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f8qth"]
 animation = &"walk_down"
@@ -650,38 +970,42 @@ blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_je0ns")
 blend_point_3/pos = Vector2(0, -0.8)
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8sjnk"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fgsoq"]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n6isl"]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qgmxi"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gh2k8"]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fjytg"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o5ov6"]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w851s"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8x2tk"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3v1c"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ca3a"]
-reset = false
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cao10"]
-reset = false
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpmuk"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjjvc"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7clmv"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4w0w2"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c6dvw"]
 states/End/position = Vector2(900, 99.7449)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kwgy2")
-states/Idle/position = Vector2(426.667, 112.382)
-states/RESET/node = SubResource("AnimationNodeAnimation_2e3tm")
-states/RESET/position = Vector2(267.333, 183.185)
-states/Start/position = Vector2(130, 182.667)
+states/Idle/position = Vector2(430, 113.623)
+states/RESET/node = SubResource("AnimationNodeAnimation_qnqy1")
+states/RESET/position = Vector2(274.667, 199.333)
+states/Start/position = Vector2(129.333, 209.334)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_31gsp")
 states/Walk/position = Vector2(638, 113.778)
 states/Weapon/node = SubResource("AnimationNodeBlendSpace2D_wcdga")
 states/Weapon/position = Vector2(530.667, 260)
-transitions = ["RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_8sjnk"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8x2tk"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ca3a"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cao10"), "Walk", "Weapon", SubResource("AnimationNodeStateMachineTransition_gpmuk"), "Weapon", "Walk", SubResource("AnimationNodeStateMachineTransition_bjjvc"), "Idle", "Weapon", SubResource("AnimationNodeStateMachineTransition_7clmv"), "Weapon", "Idle", SubResource("AnimationNodeStateMachineTransition_4w0w2")]
+transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_fgsoq"), "Walk", "Weapon", SubResource("AnimationNodeStateMachineTransition_n6isl"), "Weapon", "Idle", SubResource("AnimationNodeStateMachineTransition_qgmxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_gh2k8"), "Weapon", "Walk", SubResource("AnimationNodeStateMachineTransition_fjytg"), "Idle", "Weapon", SubResource("AnimationNodeStateMachineTransition_o5ov6"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_w851s"), "RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_x3v1c")]
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -694,9 +1018,8 @@ position = Vector2(0, -27)
 texture = ExtResource("7_o543v")
 hframes = 13
 vframes = 21
-frame = 111
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_b"]
+[node name="weapon_b" type="AnimationPlayer" parent="player_sprites/weapon_b"]
 libraries = {
 "player_animations": ExtResource("3_7v4p1")
 }
@@ -706,9 +1029,8 @@ visible = false
 texture = ExtResource("10_tjeu3")
 hframes = 6
 vframes = 4
-frame = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_b"]
+[node name="slash_b" type="AnimationPlayer" parent="player_sprites/slash_b"]
 libraries = {
 "weapon_animations": ExtResource("9_g4uqg")
 }
@@ -719,7 +1041,7 @@ hframes = 13
 vframes = 21
 frame = 104
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/body"]
+[node name="body" type="AnimationPlayer" parent="player_sprites/body"]
 libraries = {
 "": SubResource("AnimationLibrary_vtpq7"),
 "player_animations": ExtResource("3_7v4p1")
@@ -729,9 +1051,8 @@ libraries = {
 texture = ExtResource("5_7ywfr")
 hframes = 13
 vframes = 21
-frame = 111
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/torso"]
+[node name="torso" type="AnimationPlayer" parent="player_sprites/torso"]
 libraries = {
 "player_animations": ExtResource("3_7v4p1")
 }
@@ -742,7 +1063,7 @@ hframes = 13
 vframes = 21
 frame = 85
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/head"]
+[node name="head" type="AnimationPlayer" parent="player_sprites/head"]
 libraries = {
 "": SubResource("AnimationLibrary_hinwn"),
 "player_animations": ExtResource("3_7v4p1")
@@ -752,9 +1073,8 @@ libraries = {
 texture = ExtResource("3_7g1sm")
 hframes = 13
 vframes = 21
-frame = 111
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/weapon_f"]
+[node name="weapon_f" type="AnimationPlayer" parent="player_sprites/weapon_f"]
 libraries = {
 "player_animations": ExtResource("3_7v4p1")
 }
@@ -764,10 +1084,11 @@ visible = false
 texture = ExtResource("8_cbyy7")
 hframes = 6
 vframes = 4
-frame = 5
+frame = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_sprites/slash_f"]
+[node name="slash_f" type="AnimationPlayer" parent="player_sprites/slash_f"]
 libraries = {
+"": SubResource("AnimationLibrary_p6ygy"),
 "weapon_animations": ExtResource("9_g4uqg")
 }
 
