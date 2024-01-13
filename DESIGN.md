@@ -3,7 +3,7 @@
   ├── Sprite (Sprite)
   ├── AnimationController (AnimationPlayer)
   └── Collision (CollisionShape2D)
-- CharacterEntity (Node) [character_entity.gd]
+- CharacterEntity (Node2D) [character_entity.gd]
   ├── Animations ('AnimatedEntity')
   ├── NavigationController (Node)
   └── ActionController (Node)
@@ -32,8 +32,8 @@
 - ToolEntity (Node2D) [tool_entity.gd]
   └── Animations ('AnimatedEntity')
 
-- MainScene (Node2D) [main_scene.gd]
-  ├── PlayerController (Node) [player_controller.gd]
+- Game (Node2D) [game.gd]
+  ├── PlayerController (Node2D) [player_controller.gd]
   |   └── LocalPlayer ('PlayerEntity') [local_player.gd]
   ├── MultiplayerManager (Node) [multiplayer_manager.gd]
   |   ├── PlayerNetworkController (Node)

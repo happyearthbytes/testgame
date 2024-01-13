@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dayaexudqbu18"]
+
+[ext_resource type="PackedScene" uid="uid://4jln7hmp0y8w" path="res://character_entity.tscn" id="1_qkiia"]
+[ext_resource type="Script" path="res://InputHandler.gd" id="2_j4xru"]
+[ext_resource type="Script" path="res://ActionManager.gd" id="3_xhpx5"]
+
+[node name="PlayerEntity" type="Node2D"]
+
+[node name="CharacterEntity" parent="." node_paths=PackedStringArray("new_action_manager") instance=ExtResource("1_qkiia")]
+new_action_manager = NodePath("../ActionManager")
+
+[node name="ActionManager" type="Node" parent="."]
+script = ExtResource("3_xhpx5")
+
+[node name="InputHandler" type="Node" parent="." node_paths=PackedStringArray("action_manager")]
+script = ExtResource("2_j4xru")
+action_manager = NodePath("../ActionManager")

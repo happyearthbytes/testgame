@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://4jln7hmp0y8w"]
+
+[ext_resource type="Script" path="res://character_entity.gd" id="1_mo50k"]
+[ext_resource type="PackedScene" uid="uid://b6xsognrrwy86" path="res://animated_entity.tscn" id="1_mqhmm"]
+[ext_resource type="PackedScene" uid="uid://c4k26ljlocebg" path="res://character_body.tscn" id="1_yfs8t"]
+[ext_resource type="Texture2D" uid="uid://b75wps2k2krwy" path="res://icon.png" id="2_smruu"]
+[ext_resource type="Script" path="res://ActionManager.gd" id="5_vlbqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkess"]
+
+[node name="CharacterEntity" type="Node2D" node_paths=PackedStringArray("new_action_manager")]
+script = ExtResource("1_mo50k")
+new_action_manager = NodePath("_ActionManager")
+
+[node name="CharacterBody" parent="." node_paths=PackedStringArray("new_action_manager") instance=ExtResource("1_yfs8t")]
+new_action_manager = NodePath("../_ActionManager")
+shape2d = SubResource("RectangleShape2D_kkess")
+
+[node name="AnimatedEntity" parent="CharacterBody" instance=ExtResource("1_mqhmm")]
+texture2d = ExtResource("2_smruu")
+
+[node name="_ActionManager" type="Node" parent="."]
+script = ExtResource("5_vlbqn")
