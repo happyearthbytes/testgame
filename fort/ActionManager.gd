@@ -1,4 +1,4 @@
-
+@icon("res://icons/settings_accessibility_white_24dp.svg")
 extends Node
 class_name ActionManager
 

@@ -1,3 +1,4 @@
+@icon("res://icons/attribution_white_24dp.svg")
 extends CharacterBody2D
 class_name CharacterBody
 	

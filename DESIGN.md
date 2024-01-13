@@ -35,12 +35,12 @@
 - Game (Node2D) [game.gd]
   ├── PlayerController (Node2D) [player_controller.gd]
   |   └── LocalPlayer ('PlayerEntity') [local_player.gd]
-  ├── MultiplayerManager (Node) [multiplayer_manager.gd]
-  |   ├── PlayerNetworkController (Node)
-  |   └── EnemyNetworkController (Node)
   ├── EnemyManager (Node) [enemy_manager.gd]
   |   └── Enemy_1 ('EnemyEntity')
   |   └── Enemy_2 ('EnemyEntity')
+  ├── MultiplayerManager (Node) [multiplayer_manager.gd]
+  |   ├── PlayerNetworkController (Node)
+  |   └── EnemyNetworkController (Node)
   ├── ProceduralTerrain (Node2D) [procedural_terrain.gd]
   |   ├── TerrainGenerator (Node)
   |   └── TerrainLevelManager (Node)

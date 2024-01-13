@@ -1,6 +1,5 @@
 extends Node
-
-class_name InputHandler
+class_name EnemyAI
 
 signal new_direction(direction: Vector2)
 
@@ -11,15 +10,11 @@ var input_direction : Vector2 = Vector2.ZERO:
 			input_direction = direction
 			new_direction.emit(input_direction)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	input_direction = Vector2.ZERO
 
 func get_direction():
-	next_direction = Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up")
-	).limit_length()
+	next_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).limit_length()
 	next_direction.normalized()
 	input_direction = next_direction
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6unjequbph3w"]
+[gd_scene load_steps=3 format=3 uid="uid://b6unjequbph3w"]
 
-[ext_resource type="PackedScene" uid="uid://dayaexudqbu18" path="res://player_entity.tscn" id="1_emd4u"]
+[ext_resource type="PackedScene" uid="uid://dayaexudqbu18" path="res://classes/player_entity.tscn" id="1_emd4u"]
+[ext_resource type="PackedScene" uid="uid://claddxqplobmt" path="res://enemy_entity.tscn" id="2_te1aw"]
 
 [node name="Game" type="Node2D"]
 
 [node name="PlayerController" type="Node2D" parent="."]
 
-[node name="PlayerEntity" parent="PlayerController" instance=ExtResource("1_emd4u")]
+[node name="LocalPlayer" parent="PlayerController" instance=ExtResource("1_emd4u")]
 position = Vector2(285, 174)
+
+[node name="EnemyManager" type="Node" parent="."]
+
+[node name="EnemyEntity" parent="EnemyManager" instance=ExtResource("2_te1aw")]

@@ -1,5 +1,5 @@
+@icon("res://icons/account_box_white_24dp.svg")
 extends Node2D
-
 class_name CharacterEntity
 
 var action_manager : ActionManager

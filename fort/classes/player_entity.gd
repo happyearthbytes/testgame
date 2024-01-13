@@ -1,5 +1,5 @@
+@icon("res://icons/mood_white_24dp.svg")
 extends Node2D
-
 class_name PlayerEntity
 
 @onready var action_manager : ActionManager = $ActionManager
