@@ -2,17 +2,16 @@ extends CharacterBody2D
 class_name CharacterBody
 	
 @onready var collision_shape : CollisionShape2D = $_CollisionShape2D
-@onready var action_manager : ActionManager = $_ActionManager
-@export var new_action_manager : ActionManager
 @export var shape2d : Shape2D
+
+func _on_new_velocity(new_velocity : Vector2):
+	velocity = new_velocity
 
 func _ready():
 	collision_shape.shape = shape2d
-	action_manager = new_action_manager
+	velocity = Vector2.ZERO
 
-func _physics_process(delta):
-	if action_manager:
-		velocity = action_manager.get_velocity()
-		move_and_slide()
+func _physics_process(_delta):
+	move_and_slide()
 
 	

@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4k26ljlocebg"]
+[gd_scene load_steps=2 format=3 uid="uid://c4k26ljlocebg"]
 
 [ext_resource type="Script" path="res://character_body.gd" id="1_2v8o8"]
-[ext_resource type="Script" path="res://ActionManager.gd" id="2_a2p1n"]
 
 [node name="CharacterBody" type="CharacterBody2D"]
 script = ExtResource("1_2v8o8")
 
 [node name="_CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="_ActionManager" type="Node" parent="."]
-script = ExtResource("2_a2p1n")
