@@ -41,3 +41,6 @@ jobs:
         env:
           CHANNEL: web
           PACKAGE: build/web
+      - name: print publish link
+        run: |
+          echo "https://${ITCH_USER}.itch.io/${ITCH_GAME}"
