@@ -35,22 +35,25 @@
 - MainScene (Node2D) [main_scene.gd]
   ├── PlayerController (Node) [player_controller.gd]
   |   └── LocalPlayer ('PlayerEntity') [local_player.gd]
-  ├── EnemyManager (Node) [enemy_manager.gd]
-  |   └── Enemy_1 ('EnemyEntity')
-  ├── ProceduralTerrain (Node2D) [procedural_terrain.gd]
-  |   ├── TerrainGenerator (Node)
-  |   └── TerrainLevelManager (Node)
   ├── MultiplayerManager (Node) [multiplayer_manager.gd]
   |   ├── PlayerNetworkController (Node)
   |   └── EnemyNetworkController (Node)
+  ├── EnemyManager (Node) [enemy_manager.gd]
+  |   └── Enemy_1 ('EnemyEntity')
+  |   └── Enemy_2 ('EnemyEntity')
+  ├── ProceduralTerrain (Node2D) [procedural_terrain.gd]
+  |   ├── TerrainGenerator (Node)
+  |   └── TerrainLevelManager (Node)
   ├── UIManager (Node) [ui_manager.gd]
   |   ├── HealthBar (TextureProgress)
-  |   ├── ScoreLabel (Label)
   |   └── WeaponSelector (Node)
   ├── WeaponManager (Node) [weapon_manager.gd]
   |   └── Weapon_1 ('WeaponEntity')
+  |   └── Weapon_2 ('WeaponEntity')
   ├── BlockManager (Node) [block_manager.gd]
   |   └── Block_1 ('BlockEntity')
+  |   └── Block_2 ('BlockEntity')
   └── ToolManager (Node) [tool_manager.gd]
       └── Tool_1 ('ToolEntity')
+      └── Tool_2 ('ToolEntity')
 ```

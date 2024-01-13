@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0s75vug5jhdq"]
+[gd_scene load_steps=2 format=3 uid="uid://dtlwqv4rj5pko"]
 
-[ext_resource type="PackedScene" uid="uid://bplfwksyn7fff" path="res://game_engine.tscn" id="1_s3mar"]
-[ext_resource type="Script" path="res://GameManager.gd" id="2_5xxfh"]
+[ext_resource type="Texture2D" uid="uid://c30sg2mf535km" path="res://icon.svg" id="1_mgrd6"]
 
 [node name="Root" type="Node"]
-process_mode = 3
 
-[node name="GameManager" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("2_5xxfh")
-
-[node name="Game" parent="GameManager" instance=ExtResource("1_s3mar")]
-process_mode = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(435, 285)
+texture = ExtResource("1_mgrd6")
