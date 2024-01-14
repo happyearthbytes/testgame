@@ -1,4 +1,5 @@
 @icon("res://icons/animation_white_24dp.svg")
+@tool
 extends Node2D
 class_name AnimatedEntity
 

@@ -3,14 +3,15 @@
 [ext_resource type="Script" path="res://classes/player_entity.gd" id="1_0aqc2"]
 [ext_resource type="PackedScene" uid="uid://4jln7hmp0y8w" path="res://classes/character_entity.tscn" id="2_fm6d2"]
 [ext_resource type="Script" path="res://InputHandler.gd" id="2_j4xru"]
-[ext_resource type="PackedScene" uid="uid://d1p4vcnjftt27" path="res://classes/action_manager.tscn" id="3_h86nj"]
+[ext_resource type="PackedScene" uid="uid://cypgeb5ffy0ka" path="res://classes/character_attributes.tscn" id="4_kr6nq"]
 
 [node name="PlayerEntity" type="Node2D"]
 script = ExtResource("1_0aqc2")
 
 [node name="CharacterEntity" parent="." instance=ExtResource("2_fm6d2")]
 
-[node name="ActionManager" parent="." instance=ExtResource("3_h86nj")]
-
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_j4xru")
+
+[node name="CharacterAttributes" parent="." instance=ExtResource("4_kr6nq")]
+speed = 200.0

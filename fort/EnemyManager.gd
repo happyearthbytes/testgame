@@ -1,5 +1,6 @@
+@icon("res://icons/recent_actors_white_24dp.svg")
 extends Node2D
-
+class_name EnemyManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

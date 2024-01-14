@@ -1,23 +1,36 @@
 @icon("res://icons/smart_toy_white_24dp.svg")
-extends Node2D
+extends InputHandler
 class_name EnemyAI
 
-signal new_direction(direction: Vector2)
+var target : Node2D
+var character : CharacterEntity
+var targets : Array[CharacterEntity]
+@onready var collider : Area2D = $Area2D
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
+@onready var nav_region : NavigationRegion2D = get_node("../NavigationRegion2D")
 
-var next_direction : Vector2 = Vector2.ZERO
-var input_direction : Vector2 = Vector2.ZERO:
-	set(direction):
-		if direction != input_direction:
-			input_direction = direction
-			new_direction.emit(input_direction)
+func custom_ready():
+	nav_agent.set_navigation_map(nav_region)
 
-func _ready():
-	input_direction = Vector2.ZERO
+func _on_area_2d_body_entered(body: Node2D):
+	get_target(body)
+
+func get_target(new_target: Node2D):
+	target = new_target
+	nav_agent.set_target_position(target.global_position)
+
+func set_character(new_character: CharacterEntity):
+	character = new_character
 
 func get_direction():
-	next_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).limit_length()
+	if not target or not character:
+		return
+	next_direction = target.global_position - character.body.global_position
+	next_direction = next_direction.limit_length()
 	next_direction.normalized()
 	input_direction = next_direction
 
 func _process(delta):
 	get_direction()
+
+

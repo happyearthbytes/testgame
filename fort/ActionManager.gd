@@ -2,23 +2,19 @@
 extends Node
 class_name ActionManager
 
-const DEFAULT_DIRECTION : Vector2 = Vector2(0,0)
-const DEFAULT_VELOCITY : Vector2 = Vector2(0,0)
-const DEFAULT_SPEED: float = 100.0
-
 signal new_velocity(velocity: Vector2)
 
-var direction : Vector2 = DEFAULT_DIRECTION:
+var direction : Vector2 = Vector2.ZERO:
 	set(direction_vec2):
 		direction = direction_vec2
 	get:
 		return direction
-var velocity : Vector2 = DEFAULT_VELOCITY:
+var velocity : Vector2 = Vector2.ZERO:
 	set(velocity_val):
 		velocity = velocity_val
 	get:
 		return velocity
-var speed : float = DEFAULT_SPEED:
+var speed : float = 0.0:
 	set(speed_val):
 		speed = speed_val
 	get:
@@ -34,9 +30,9 @@ func _on_new_speed(speed_val: float):
 	speed = speed_val
 
 func _ready():
-	direction = DEFAULT_DIRECTION
-	velocity = DEFAULT_VELOCITY
-	speed = DEFAULT_SPEED
+	direction = Vector2.ZERO
+	velocity = Vector2.ZERO
+	speed = 0.0
 
 func _physics_process(_delta):
 	velocity = direction * speed

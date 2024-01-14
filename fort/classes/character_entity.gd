@@ -2,12 +2,24 @@
 extends Node2D
 class_name CharacterEntity
 
-var action_manager : ActionManager
 @onready var body : CharacterBody = $CharacterBody
+@onready var action_manager : ActionManager = $ActionManager
+var character_attributes : CharacterAttributes
+var input_handler : InputHandler
 
-func set_action_manager(new_action_manager : ActionManager):
+func set_character_attributes(new_character_attributes : CharacterAttributes):
+	character_attributes = new_character_attributes
+	character_attributes.new_speed.connect(action_manager._on_new_speed)
+	character_attributes.update()
+
+func set_input_handler(new_input_handler : InputHandler):
+	input_handler = new_input_handler
+	input_handler.new_direction.connect(action_manager._on_new_direction)
+
+func _set_action_manager(new_action_manager : ActionManager):
 	action_manager = new_action_manager
-	_connect_action_manager()
-
-func _connect_action_manager():
 	action_manager.new_velocity.connect(body._on_new_velocity)
+
+
+func _ready():
+	_set_action_manager(action_manager)
