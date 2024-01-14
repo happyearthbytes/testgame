@@ -1,3 +1,4 @@
+@icon("res://icons/manage_accounts_white_24dp.svg")
 extends Node
 class_name CharacterAttributes
 

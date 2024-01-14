@@ -62,10 +62,6 @@
 ```cs
 - AnimatedEntity (Node2D) [animated_entity.gd]
   ├── AnimationController (AnimationPlayer)
-  └── Collision (CollisionShape2D)
-- CharacterEntity (Node2D) [character_entity.gd]
-  ├── NavigationController (Node)
-  └── ActionController (Node)
 - PlayerEntity ('CharacterEntity') [player_entity.gd]
   └── InventoryManager (Node) [inventory_manager.gd]
       ├── ElementsInventory (Node) [elements_inventory.gd]
@@ -76,8 +72,6 @@
       |   └── WeaponSlot (Node)
       └── ToolsInventory (Node) [tools_inventory.gd]
           └── ToolSlot (Node)
-- EnemyAI (Node) [enemy_ai.gd]
-  └── EnemyBehavior (Node)
 - ProjectileEntity (Node2D) [projectile_entity.gd]
   └── Animations ('AnimatedEntity')
 - WeaponEntity (Node2D) [weapon_entity.gd]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1p4vcnjftt27"]
 
-[ext_resource type="Script" path="res://ActionManager.gd" id="1_1tvht"]
+[ext_resource type="Script" path="res://classes/ActionManager.gd" id="1_pyvuw"]
 
 [node name="ActionManager" type="Node"]
-script = ExtResource("1_1tvht")
+script = ExtResource("1_pyvuw")

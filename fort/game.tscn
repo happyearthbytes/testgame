@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6unjequbph3w"]
+[gd_scene load_steps=14 format=3 uid="uid://b6unjequbph3w"]
 
 [ext_resource type="PackedScene" uid="uid://dayaexudqbu18" path="res://classes/player_entity.tscn" id="1_emd4u"]
 [ext_resource type="Script" path="res://game.gd" id="1_mrppq"]
 [ext_resource type="PackedScene" uid="uid://claddxqplobmt" path="res://classes/enemy_entity.tscn" id="2_key06"]
-[ext_resource type="Script" path="res://PlayerController.gd" id="2_r2num"]
-[ext_resource type="Script" path="res://EnemyManager.gd" id="4_effcf"]
+[ext_resource type="Script" path="res://classes/PlayerController.gd" id="2_r2num"]
+[ext_resource type="Script" path="res://classes/EnemyManager.gd" id="4_effcf"]
 [ext_resource type="Texture2D" uid="uid://djd5suyeydary" path="res://icons/grid_view_white_24dp.svg" id="6_c115v"]
+[ext_resource type="PackedScene" uid="uid://br24rq7sp185e" path="res://classes/block_manager.tscn" id="7_1j01l"]
+[ext_resource type="Script" path="res://UIManager.gd" id="8_02mb5"]
+[ext_resource type="Script" path="res://WeaponManager.gd" id="9_kgmhj"]
+[ext_resource type="Script" path="res://ToolManager.gd" id="10_5mwsh"]
+[ext_resource type="Script" path="res://TerrainManager.gd" id="11_6i5xy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m3qci"]
 vertices = PackedVector2Array(357, 304, 292, 304, 84, 264, 84, 200, 170, 153, 779, 153, 292, 368, 357, 368, 234, 398, 783, 557, -94, 514, 169, 398, 124, 359, 124, 295, 169, 334, 234, 334, 59, 359, 777, -50, 779, 115, 170, 115, -41, -72, 19, 200, 19, 264, 59, 295)
@@ -25,12 +30,19 @@ script = ExtResource("2_r2num")
 [node name="LocalPlayer" parent="PlayerController" instance=ExtResource("1_emd4u")]
 position = Vector2(409, 241)
 
+[node name="Camera2D" type="Camera2D" parent="PlayerController/LocalPlayer"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("4_effcf")
 
 [node name="Timer" type="Timer" parent="EnemyManager"]
+wait_time = 5.385
 
 [node name="Enemy_1" parent="EnemyManager" instance=ExtResource("2_key06")]
+visible = false
 position = Vector2(428, 34)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -93,5 +105,19 @@ shape = SubResource("RectangleShape2D_1vplo")
 position = Vector2(0.250021, -0.250003)
 scale = Vector2(1.97917, 1.85417)
 texture = ExtResource("6_c115v")
+
+[node name="BlockManager" parent="." instance=ExtResource("7_1j01l")]
+
+[node name="UIManager" type="Node2D" parent="."]
+script = ExtResource("8_02mb5")
+
+[node name="WeaponManager" type="Node2D" parent="."]
+script = ExtResource("9_kgmhj")
+
+[node name="ToolManager" type="Node2D" parent="."]
+script = ExtResource("10_5mwsh")
+
+[node name="TerrainManager" type="Node2D" parent="."]
+script = ExtResource("11_6i5xy")
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="_on_timer_timeout"]

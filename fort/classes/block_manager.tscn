@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br24rq7sp185e"]
+
+[ext_resource type="Script" path="res://classes/BlockManager.gd" id="1_8rhdw"]
+
+[node name="BlockManager" type="Node2D"]
+script = ExtResource("1_8rhdw")

@@ -23,6 +23,19 @@ var speed : float = 0.0:
 func get_velocity():
 	return velocity
 
+func _on_new_pointer(pointer_in: Vector2):
+	print("set_pointer")
+	print(pointer_in)
+
+func _on_new_use_weapon():
+	print("use_weapon")
+
+func _on_new_use_tool():
+	print("use_tool")
+
+func _on_new_place():
+	print("place")
+
 func _on_new_direction(direction_vec2: Vector2):
 	direction = direction_vec2
 
