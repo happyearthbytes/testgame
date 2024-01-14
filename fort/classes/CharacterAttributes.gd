@@ -5,7 +5,7 @@ signal new_speed(speed: float)
 signal new_texture(texture: Texture2D)
 signal new_shape(shape: Shape2D)
 
-@export var speed : float = 10.0:
+@export var speed : float = 0.0:
 	set(speed_in):
 		speed = speed_in
 		new_speed.emit(speed)

@@ -1,19 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://claddxqplobmt"]
+[gd_scene load_steps=8 format=3 uid="uid://claddxqplobmt"]
 
 [ext_resource type="Script" path="res://classes/enemy_entity.gd" id="1_g5iae"]
 [ext_resource type="PackedScene" uid="uid://4jln7hmp0y8w" path="res://classes/character_entity.tscn" id="3_hf3vw"]
 [ext_resource type="PackedScene" uid="uid://t0a5ma5ffole" path="res://classes/enemy_ai.tscn" id="4_fwsol"]
 [ext_resource type="Script" path="res://classes/CharacterAttributes.gd" id="4_vg7b3"]
-[ext_resource type="Texture2D" uid="uid://b75wps2k2krwy" path="res://icon.png" id="5_cubjw"]
+[ext_resource type="Texture2D" uid="uid://fn1h4maugg7r" path="res://icons/cyclone_white_24dp.svg" id="5_eqser"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf707"]
 radius = 362.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vjquy"]
-vertices = PackedVector2Array(514, -451, 556, 475, -586, 437, -523, -478)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-533, -489, 524, -461, 567, 486, -597, 447)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsvh2"]
 
@@ -32,13 +26,10 @@ shape = SubResource("CircleShape2D_lf707")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_vjquy")
-
 [node name="CharacterAttributes" type="Node" parent="."]
 script = ExtResource("4_vg7b3")
-speed = 50.0
-texture = ExtResource("5_cubjw")
+speed = 8.0
+texture = ExtResource("5_eqser")
 shape = SubResource("CircleShape2D_lsvh2")
 
 [connection signal="body_entered" from="EnemyAI/Area2D" to="EnemyAI" method="_on_area_2d_body_entered"]
