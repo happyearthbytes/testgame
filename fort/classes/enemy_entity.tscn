@@ -19,7 +19,7 @@ script = ExtResource("1_g5iae")
 [node name="CharacterAttributes" parent="." instance=ExtResource("2_tjac0")]
 character_type = 1
 area_shape = SubResource("CircleShape2D_vywoa")
-speed = 25.0
+speed = 100.0
 texture = ExtResource("3_83i4l")
 shape = SubResource("RectangleShape2D_63gss")
 
@@ -27,13 +27,15 @@ shape = SubResource("RectangleShape2D_63gss")
 
 [node name="EnemyAI" parent="." instance=ExtResource("4_fwsol")]
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
+avoidance_enabled = true
+radius = 100.0
+
 [node name="Area2D" type="Area2D" parent="EnemyAI"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAI/Area2D"]
 shape = SubResource("CircleShape2D_lf707")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
 
 [connection signal="body_entered" from="EnemyAI/Area2D" to="EnemyAI" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="EnemyAI/Area2D" to="EnemyAI" method="_on_area_2d_body_exited"]
