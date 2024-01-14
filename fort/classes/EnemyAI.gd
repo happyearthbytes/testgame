@@ -2,9 +2,8 @@
 extends InputHandler
 class_name EnemyAI
 
-var target : Node2D
 var character : CharacterEntity
-var targets : Array[CharacterEntity]
+var target : Node2D
 @onready var collider : Area2D = $Area2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var nav_region : NavigationRegion2D = get_node("../NavigationRegion2D")

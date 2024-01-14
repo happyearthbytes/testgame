@@ -10,6 +10,8 @@ var input_handler : InputHandler
 func set_character_attributes(new_character_attributes : CharacterAttributes):
 	character_attributes = new_character_attributes
 	character_attributes.new_speed.connect(action_manager._on_new_speed)
+	character_attributes.new_texture.connect(body._on_new_texture)
+	character_attributes.new_shape.connect(body._on_new_shape)
 	character_attributes.update()
 
 func set_input_handler(new_input_handler : InputHandler):

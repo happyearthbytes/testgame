@@ -3,9 +3,7 @@
 extends Node2D
 class_name AnimatedEntity
 
+func _on_new_texture(texture : Texture2D):
+	sprite.texture = texture
 
-@export var texture2d : Texture2D
 @onready var sprite : Sprite2D = $Sprite2D
-
-func _ready():
-	sprite.texture = texture2d

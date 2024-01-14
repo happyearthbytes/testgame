@@ -1,20 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://4jln7hmp0y8w"]
+[gd_scene load_steps=5 format=3 uid="uid://4jln7hmp0y8w"]
 
 [ext_resource type="Script" path="res://classes/character_entity.gd" id="1_85260"]
 [ext_resource type="PackedScene" uid="uid://c4k26ljlocebg" path="res://classes/character_body.tscn" id="2_t4h18"]
 [ext_resource type="PackedScene" uid="uid://b6xsognrrwy86" path="res://classes/animated_entity.tscn" id="3_64ovn"]
-[ext_resource type="Texture2D" uid="uid://b75wps2k2krwy" path="res://icon.png" id="4_tugoi"]
 [ext_resource type="PackedScene" uid="uid://d1p4vcnjftt27" path="res://classes/action_manager.tscn" id="5_s63sp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkess"]
 
 [node name="CharacterEntity" type="Node2D"]
 script = ExtResource("1_85260")
 
 [node name="CharacterBody" parent="." instance=ExtResource("2_t4h18")]
-shape2d = SubResource("RectangleShape2D_kkess")
 
 [node name="AnimatedEntity" parent="CharacterBody" instance=ExtResource("3_64ovn")]
-texture2d = ExtResource("4_tugoi")
 
 [node name="ActionManager" parent="." instance=ExtResource("5_s63sp")]
