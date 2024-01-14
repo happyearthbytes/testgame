@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6unjequbph3w"]
+[gd_scene load_steps=5 format=3 uid="uid://b6unjequbph3w"]
 
 [ext_resource type="PackedScene" uid="uid://dayaexudqbu18" path="res://classes/player_entity.tscn" id="1_emd4u"]
-[ext_resource type="PackedScene" uid="uid://claddxqplobmt" path="res://enemy_entity.tscn" id="2_te1aw"]
+[ext_resource type="Script" path="res://game.gd" id="1_mrppq"]
+[ext_resource type="PackedScene" uid="uid://claddxqplobmt" path="res://classes/enemy_entity.tscn" id="2_key06"]
+[ext_resource type="Script" path="res://PlayerController.gd" id="2_r2num"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_mrppq")
 
 [node name="PlayerController" type="Node2D" parent="."]
+script = ExtResource("2_r2num")
 
 [node name="LocalPlayer" parent="PlayerController" instance=ExtResource("1_emd4u")]
 position = Vector2(285, 174)
 
-[node name="EnemyManager" type="Node" parent="."]
+[node name="EnemyManager" type="Node2D" parent="."]
 
-[node name="EnemyEntity" parent="EnemyManager" instance=ExtResource("2_te1aw")]
+[node name="EnemyEntit" parent="EnemyManager" instance=ExtResource("2_key06")]

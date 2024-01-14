@@ -1,3 +1,4 @@
+@icon("res://icons/star_white_24dp.svg")
 extends Node2D
 
 

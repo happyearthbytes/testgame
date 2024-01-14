@@ -1,3 +1,4 @@
+@icon("res://icons/engineering_white_24dp.svg")
 extends Node2D
 
 

@@ -1,4 +1,5 @@
-extends Node
+@icon("res://icons/smart_toy_white_24dp.svg")
+extends Node2D
 class_name EnemyAI
 
 signal new_direction(direction: Vector2)

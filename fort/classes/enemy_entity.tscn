@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://claddxqplobmt"]
+
+[ext_resource type="Script" path="res://classes/enemy_entity.gd" id="1_g5iae"]
+[ext_resource type="PackedScene" uid="uid://d1p4vcnjftt27" path="res://classes/action_manager.tscn" id="2_w1m31"]
+[ext_resource type="PackedScene" uid="uid://4jln7hmp0y8w" path="res://classes/character_entity.tscn" id="3_hf3vw"]
+[ext_resource type="PackedScene" uid="uid://t0a5ma5ffole" path="res://classes/enemy_ai.tscn" id="4_fwsol"]
+
+[node name="EnemyEntity" type="Node2D"]
+script = ExtResource("1_g5iae")
+
+[node name="ActionManager" parent="." instance=ExtResource("2_w1m31")]
+
+[node name="CharacterEntity" parent="." instance=ExtResource("3_hf3vw")]
+
+[node name="EnemyAI" parent="." instance=ExtResource("4_fwsol")]

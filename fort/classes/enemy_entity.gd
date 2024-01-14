@@ -1,5 +1,5 @@
 @icon("res://icons/sentiment_dissatisfied_white_24dp.svg")
-extends Node
+extends Node2D
 class_name EnemyEntity
 
 @onready var action_manager : ActionManager = $ActionManager

@@ -1,3 +1,4 @@
+@icon("res://icons/gamepad_white_24dp.svg")
 extends Node
 
 class_name InputHandler
