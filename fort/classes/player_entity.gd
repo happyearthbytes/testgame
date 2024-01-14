@@ -2,6 +2,7 @@
 extends Node2D
 class_name PlayerEntity
 
+
 @onready var input_handler : InputHandler = $InputHandler
 @onready var character_entity : CharacterEntity = $CharacterEntity
 @onready var character_attributes : CharacterAttributes = $CharacterAttributes

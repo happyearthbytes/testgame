@@ -1,39 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://claddxqplobmt"]
+[gd_scene load_steps=8 format=3 uid="uid://claddxqplobmt"]
 
 [ext_resource type="Script" path="res://classes/enemy_entity.gd" id="1_g5iae"]
 [ext_resource type="PackedScene" uid="uid://cypgeb5ffy0ka" path="res://classes/character_attributes.tscn" id="2_tjac0"]
-[ext_resource type="Texture2D" uid="uid://dli2obw3qtfk6" path="res://icons/smart_toy_white_24dp.svg" id="3_83i4l"]
 [ext_resource type="PackedScene" uid="uid://4jln7hmp0y8w" path="res://classes/character_entity.tscn" id="3_hf3vw"]
 [ext_resource type="PackedScene" uid="uid://t0a5ma5ffole" path="res://classes/enemy_ai.tscn" id="4_fwsol"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vywoa"]
+[ext_resource type="Texture2D" uid="uid://c30sg2mf535km" path="res://icon.svg" id="5_r016m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63gss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf707"]
-radius = 339.013
+radius = 245.247
 
 [node name="EnemyEntity" type="Node2D"]
 script = ExtResource("1_g5iae")
 
 [node name="CharacterAttributes" parent="." instance=ExtResource("2_tjac0")]
 character_type = 1
-area_shape = SubResource("CircleShape2D_vywoa")
 speed = 25.0
-texture = ExtResource("3_83i4l")
+texture = ExtResource("5_r016m")
 shape = SubResource("RectangleShape2D_63gss")
 
 [node name="CharacterEntity" parent="." instance=ExtResource("3_hf3vw")]
 
-[node name="EnemyAI" parent="." instance=ExtResource("4_fwsol")]
+[node name="EnemyAI" parent="CharacterEntity" instance=ExtResource("4_fwsol")]
 
-[node name="Area2D" type="Area2D" parent="EnemyAI"]
+[node name="Area2D" type="Area2D" parent="CharacterEntity/EnemyAI"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAI/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterEntity/EnemyAI/Area2D"]
 shape = SubResource("CircleShape2D_lf707")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterEntity/EnemyAI"]
 
-[connection signal="body_entered" from="EnemyAI/Area2D" to="EnemyAI" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="EnemyAI/Area2D" to="EnemyAI" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="CharacterEntity/EnemyAI/Area2D" to="CharacterEntity/EnemyAI" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterEntity/EnemyAI/Area2D" to="CharacterEntity/EnemyAI" method="_on_area_2d_body_exited"]

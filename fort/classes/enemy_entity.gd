@@ -10,5 +10,5 @@ class_name EnemyEntity
 func _ready():
 	character_entity.set_input_handler(enemy_ai)
 	character_entity.set_character_attributes(character_attributes)
-	enemy_ai.set_character(character_entity)
+	enemy_ai.set_character(character_entity.body)
 	enemy_ai.set_nav_region(nav_region)
