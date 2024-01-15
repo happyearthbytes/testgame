@@ -34,3 +34,4 @@ script = ExtResource("2_5rin1")
 
 [node name="ID" type="Node" parent="."]
 script = ExtResource("3_n4itv")
+name = &"ID"

@@ -210,6 +210,7 @@ ID (mgr,inst)
 # physical to virtual user cmds
 input-m (id=G)
   input-key-m (key-s(host) -> input-s(host,input-v))
+  input-mouse-m (key-s(host) -> input-s(host,input-v))
   input-touch-m (touch-s(host) -> input-s(host,input-v))
   input-http-m (http-s(host) -> input-s(host,input-v))
 user-m (id=G)
@@ -221,6 +222,10 @@ player-m-t (id..host)
   (input-s(host,input-v) -> input-s(self-id,input-v))
 player-t (self-id=host.player-n)
   [character] entity-m-i (self-id=self-id.entity-m-N,manager-id=self-id,entity-type,)
+  command-m-i
+command-m-t
+  input-v -> 
+
 entity-m-t (self-id,manager-id,entity-type)
   [character] entity-i (manager-id==player-id,entity-type,entity-id==player-id.entity-N) [character]
 entity-t (self-id,manager-id,entity-type)
