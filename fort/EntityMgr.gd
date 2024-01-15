@@ -1,14 +1,16 @@
 extends Object
 class_name EntityMgr
 
-func _init():
-	pass
+var base_entity_mgr : BaseEntityMgr
+var id : ID
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _init(id_in : ID):
+	id = id_in
+	base_entity_mgr = BaseEntityMgr.new(__entity_type())
 
+func __entity_type():
+	assert(false, "__entity_type not set")
+	return
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func create_entity(varargs: Variant) -> Entity:
+	return base_entity_mgr.create_entity(varargs)

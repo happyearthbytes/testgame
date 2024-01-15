@@ -1,14 +1,6 @@
-extends Object
+extends Entity
 class_name User
 
-func _init():
-	print("user")
+func _init(user_type: UserMgr.UserType):
+	print("Creating User %s" % [UserMgr.UserType.find_key(user_type)])
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
