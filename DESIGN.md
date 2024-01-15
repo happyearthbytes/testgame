@@ -196,8 +196,12 @@ BodyManager {has} new_body(body_config) // Adds collision shapes, animations, an
 BodyManager {'signal'} _body_event
 <from_env> --[Emits]--> _body_event
 
+```
 
-..
+
+```cs
+
+
 ID (mgr,inst)
   mgr=mgr
   inst=inst
@@ -222,7 +226,6 @@ entity-m-t (self-id,manager-id,entity-type)
 entity-t (self-id,manager-id,entity-type)
 
   
-  
 user (uid) presses key "E" and is handled by input-key-m (im)
 input-key-m (im) sends "uid.use-selected" to input-m (im)
 input-m (im) sends "uid.use-selected" to command-m (uid)
@@ -235,7 +238,11 @@ weapon (w-id) hits enemy (e-id)
 enemy dies (enemyid)
 
 player (playerid) gets enemy.point (enemyid)
+```
 
+
+
+```cs
 
 ..
 
