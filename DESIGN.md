@@ -197,6 +197,43 @@ BodyManager {'signal'} _body_event
 <from_env> --[Emits]--> _body_event
 
 
+..
+# physical to virtual user cmds
+input-m
+  input-key-m (key-s(host) -> input-s(host,input-v))
+  input-touch-m (touch-s(host) -> input-s(host,input-v))
+  input-http-m (http-s(host) -> input-s(host,input-v))
+user-m
+  user-i (host==user-id)
+user-t (host)
+  player-m-i (host==user-id)
+player-m-t (host)
+  player-i (player-id==host.player-N)
+  (input-s(host,input-v) -> input-s(player-id,input-v))
+player-t (player-id)
+  entity-i (manager-id==player-id,entity-type,entity-id==player-id.entity-N) [character]
+entity-t
+
+  
+  
+user (uid) presses key "E" and is handled by input-key-m (im)
+input-key-m (im) sends "uid.use-selected" to input-m (im)
+input-m (im) sends "uid.use-selected" to command-m (uid)
+
+command-m (uid) sends "use-selected" to entity-m (em)
+entity-m (p-id) sends em-cmd-v "use weapon" to entity-i (p-id)
+entity-i (p-id) sends ei-cmd-v "use weapon" to equipment-m (ei-id)
+equipment-m (p-id) sends eqm-cmd-v "activate" to weapon-i (wi-id)
+weapon (w-id) hits enemy (e-id)
+enemy dies (enemyid)
+
+player (playerid) gets enemy.point (enemyid)
+
+
+..
+
+
+
 # PubSub
 PubSub {has} _publish('pubid',data)
 PubSub {has} _set_sig('pubid',pub_sig)
