@@ -198,21 +198,28 @@ BodyManager {'signal'} _body_event
 
 
 ..
+ID (mgr,inst)
+  mgr=mgr
+  inst=inst
+  id=mgr+inst
+
 # physical to virtual user cmds
-input-m
+input-m (id=G)
   input-key-m (key-s(host) -> input-s(host,input-v))
   input-touch-m (touch-s(host) -> input-s(host,input-v))
   input-http-m (http-s(host) -> input-s(host,input-v))
-user-m
-  user-i (host==user-id)
-user-t (host)
-  player-m-i (host==user-id)
-player-m-t (host)
-  player-i (player-id==host.player-N)
-  (input-s(host,input-v) -> input-s(player-id,input-v))
-player-t (player-id)
-  entity-i (manager-id==player-id,entity-type,entity-id==player-id.entity-N) [character]
-entity-t
+user-m (id=G)
+  user-i (ID(mgr=id,inst=host))
+user-t (id..host)
+  player-m-i (ID(mgr=id,inst=1))
+player-m-t (id..host)
+  player-i (ID(mgr=id,inst=N))
+  (input-s(host,input-v) -> input-s(self-id,input-v))
+player-t (self-id=host.player-n)
+  [character] entity-m-i (self-id=self-id.entity-m-N,manager-id=self-id,entity-type,)
+entity-m-t (self-id,manager-id,entity-type)
+  [character] entity-i (manager-id==player-id,entity-type,entity-id==player-id.entity-N) [character]
+entity-t (self-id,manager-id,entity-type)
 
   
   
