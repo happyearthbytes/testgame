@@ -161,15 +161,26 @@ CharacterEntity <Connects> CharacterBody --signals--> CharacterActionManager._on
 
 
 
+# BaseEntity
+BaseEntity [contains] PubSub publisher
+BaseEntity [contains] BodyManager
+BaseEntity [contains] Attributes
+BaseEntity {'signal'} _entity_event
+BaseEntity {has} _on_entity_event -> publisher.publish('event_name',data)
+BaseEntity {has} _on_InputHandler --calls--> ActionManager._on_input
+BaseEntity {has} _on_Configure --calls--> Attributes._configure
 
+BaseEntity <Connects> ActionManager --signals--> Attributes._on_action
+BaseEntity <Connects> ActionManager --signals--> ._on_player_event
+BaseEntity <Connects> Attributes --signals--> BodyManager._on_attribute
+
+BaseEntity [contains] 'virtual' ActionManager
 
 
 # ActionManager
 ActionManager [contains] PubSub
 ActionManager {has} _on_input(input) -> process_input(input)
-ActionManager {has} _subscribe('pubid',cb) -> PubSub.subscribe('pubid',cb)
-ActionManager {has} _register() -> PubSub.register(pubids)
-ActionManager {has} _base_ready() -> _register()
+ActionManager {has} _base_ready() -> ...
 ActionManager {has} _on_ready_() -> _base_ready() _custom_ready()
 
 ActionManager [contains] 'virtual' pubids
@@ -187,11 +198,17 @@ BodyManager {'signal'} _body_event
 
 
 # PubSub
-PubSub [contains] Subs[{id,cb},{id,cb}]
-PubSub {has} register(ids)
-PubSub {has} publish('pubid',data)
-PubSub {has} subscribe('pubid',cb)
-PubSub {has} listen('pubid',cb)
+PubSub {has} _publish('pubid',data)
+PubSub {has} _set_sig('pubid',pub_sig)
+PubSub {has} register_sub(sub)
+SubSub {has} register_pub(pub)
+PubSub {has} _get_sig('pubid')
+SubSub {has} _subscribe('pubid',sub_cb)
+
+# Publisher
+Publisher {'virtual'} publishes = {'ids':sig}
+# Subscriber
+Subscriber {'virtual'} subscribes = {'ids':cb}
 
 # BlockManager
 
