@@ -7,6 +7,7 @@ var camera : Camera2D:
 	set(camera_in):
 		camera = camera_in
 		camera.reparent(local_player.character_entity.body)
+
 var block_manager : BlockManager:
 	set(block_manager_in):
 		block_manager = block_manager_in

@@ -103,3 +103,61 @@
       └── Tool_2 ('ToolEntity')
 
 ```
+
+```cs
+
+# PlayerManager
+# ControllerHandler
+  ControllerHandler {'signal'} _on_controller
+  <from_env>  --[Emits]--> _action _on_controller
+# HTTPHandler
+  HTTPHandler {'signal'} _on_http
+  <from_env>  --[Emits]--> _action _on_http
+PlayerManager [contains] ControllerHandler
+PlayerManager [contains] HTTPHandler
+PlayerManager {has} _on_local_player
+  ]*instantiates*-> PlayerEntity
+  <Connects> _on_game_Signal --signals--> PlayerEntity._on_game_event
+  <Connects> ControllerHandler --signals--> PlayerEntity._on_ControlInput
+PlayerManager {has} _on_remote_player
+  ]*instantiates*-> PlayerEntity
+  <Connects> _on_game_Signal --signals--> PlayerEntity._on_game_event
+  <Connects> HTTPHandler --signals--> PlayerEntity._player_update
+  <Connects> PlayerEntity._player_event --signals--> HTTPHandler._player_update
+LocalPlayer <Connects> ControllerHandler --signals--> PlayerEntity._on_ControllerHandler
+# PlayerEntity
+PlayerEntity [contains] InputHandler
+PlayerEntity [contains] CharacterEntity
+PlayerEntity {has} _player_update --calls--> (overrides) // remote player support
+PlayerEntity {has} _player_event                         // remote player support
+PlayerEntity {has} _on_ControlInput --calls--> InputHandler._on_command
+PlayerEntity {has} _on_game_event --calls--> InputHandler._on_game_signal
+# InputHandler
+  InputHandler {'signal'} _on_command
+PlayerEntity <Connects> InputHandler --signals--> CharacterEntity._on_InputHandler
+PlayerEntity {has} _on_ready --calls-->
+  CharacterEntity._on_Configure
+  PlayerEntity <Connects> CharacterEntity._player_event --signals--> ._player_event
+# CharacterEntity
+CharacterEntity [contains] CharacterBody
+CharacterEntity [contains] ActionManager
+CharacterEntity [contains] AnimatedEntity
+CharacterEntity {'signal'} _player_event
+CharacterEntity {has} _on_player_event --[Emits]--> _player_event
+CharacterEntity {has} _on_InputHandler --calls--> ActionManager._on_input
+CharacterEntity {has} _on_Configure --calls--> CharacterAttributes._configure
+# ActionManager
+  ActionManager {'signal'} _action
+  ActionManager {has} _on_input --[Emits]--> _action
+CharacterEntity <Connects> ActionManager --signals--> CharacterAttributes._on_action
+CharacterEntity <Connects> ActionManager --signals--> ._on_player_event
+CharacterEntity <Connects> CharacterAttributes --signals--> CharacterBody._on_attribute
+# CharacterBody
+  CharacterBody {'signal'} _on_character_event
+  <from_env> --[Emits]--> _on_character_event
+CharacterEntity <Connects> CharacterBody --signals--> ActionManager._on_
+
+
+
+
+```
