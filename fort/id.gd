@@ -7,22 +7,22 @@ var _children : Dictionary
 const DEFAULT_INST : String = ""
 const DEFAULT_NAME : String = "default_name"
 
-@export var name : String = DEFAULT_NAME
+@export var id_name : String = DEFAULT_NAME
 var mgr : String
 var inst : String
 var id : String
 
 func _init(mgr_in: String="root",name_in: String="default_name_in",inst_in: String=DEFAULT_INST):
 	mgr=mgr_in
-	name=name_in
+	id_name=name_in
 	inst=inst_in
-	var name_inst = _name_inst_to_str(name,inst)
+	var name_inst = _name_inst_to_str(id_name,inst)
 	id="%s.%s" % [str(mgr_in), str(name_inst)]
 
 func _name_inst_to_str(name_in: String, inst_in: String = DEFAULT_INST) -> String:
 	var name_inst : String
 	if inst_in == DEFAULT_INST:
-		name_inst = name
+		name_inst = id_name
 	else:
 		name_inst = "%s-%s" %[name_in,inst_in]
 	return name_inst
@@ -51,6 +51,7 @@ func remove_child_by_id(child_in: ID):
 
 func new_child(name_in: String, inst_in: String = DEFAULT_INST) -> ID:
 	var new_child = ID.new(id,name_in,inst_in)
+	print("New ID: %s -> %s" % [self, new_child])
 	_add_child(new_child)
 	return new_child
 	
