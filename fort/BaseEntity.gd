@@ -1,4 +1,4 @@
-extends Node
+extends Object
 
 var pub_sub : PubSub
 var body_mgr : BodyMgr

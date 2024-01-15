@@ -1,5 +1,8 @@
 extends Object
-class_name BaseActionMgr
+class_name User
+
+func _init():
+	print("user")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

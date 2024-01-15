@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw8ddfwisfnko"]
+[gd_scene load_steps=11 format=3 uid="uid://bw8ddfwisfnko"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_6jj5a"]
 [ext_resource type="Script" path="res://InputMgr.gd" id="2_gb3cc"]
@@ -8,10 +8,14 @@
 [ext_resource type="Script" path="res://Entity.gd" id="3_hdkep"]
 [ext_resource type="Script" path="res://PubSub.gd" id="5_7xik5"]
 [ext_resource type="Script" path="res://EM_PlayerMgr.gd" id="5_b3ocw"]
+[ext_resource type="Script" path="res://UserMgr.gd" id="6_0k5c1"]
 [ext_resource type="Script" path="res://Attributes.gd" id="12_lfaec"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_6jj5a")
+
+[node name="UserMgr" type="Node" parent="."]
+script = ExtResource("6_0k5c1")
 
 [node name="InputMgr" type="Node" parent="."]
 script = ExtResource("2_gb3cc")
