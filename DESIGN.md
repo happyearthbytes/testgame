@@ -110,21 +110,20 @@
 # ControllerHandler
   ControllerHandler {'signal'} _on_controller
   <from_env>  --[Emits]--> _action _on_controller
-# HTTPHandler
-  HTTPHandler {'signal'} _on_http
-  <from_env>  --[Emits]--> _action _on_http
 PlayerManager [contains] ControllerHandler
-PlayerManager [contains] HTTPHandler
 PlayerManager {has} _on_local_player
   ]*instantiates*-> PlayerEntity
   <Connects> _on_game_Signal --signals--> PlayerEntity._on_game_event
   <Connects> ControllerHandler --signals--> PlayerEntity._on_ControlInput
+# HTTPHandler
+  HTTPHandler {'signal'} _on_http
+  <from_env>  --[Emits]--> _action _on_http
+PlayerManager [contains] HTTPHandler
 PlayerManager {has} _on_remote_player
   ]*instantiates*-> PlayerEntity
   <Connects> _on_game_Signal --signals--> PlayerEntity._on_game_event
   <Connects> HTTPHandler --signals--> PlayerEntity._player_update
   <Connects> PlayerEntity._player_event --signals--> HTTPHandler._player_update
-LocalPlayer <Connects> ControllerHandler --signals--> PlayerEntity._on_ControllerHandler
 # PlayerEntity
 PlayerEntity [contains] InputHandler
 PlayerEntity [contains] CharacterEntity
@@ -140,24 +139,92 @@ PlayerEntity {has} _on_ready --calls-->
   PlayerEntity <Connects> CharacterEntity._player_event --signals--> ._player_event
 # CharacterEntity
 CharacterEntity [contains] CharacterBody
-CharacterEntity [contains] ActionManager
+CharacterEntity [contains] CharacterActionManager
+CharacterEntity [contains] CharacterAttributes
 CharacterEntity [contains] AnimatedEntity
 CharacterEntity {'signal'} _player_event
 CharacterEntity {has} _on_player_event --[Emits]--> _player_event
-CharacterEntity {has} _on_InputHandler --calls--> ActionManager._on_input
+CharacterEntity {has} _on_InputHandler --calls--> CharacterActionManager._on_input
 CharacterEntity {has} _on_Configure --calls--> CharacterAttributes._configure
-# ActionManager
-  ActionManager {'signal'} _action
-  ActionManager {has} _on_input --[Emits]--> _action
-CharacterEntity <Connects> ActionManager --signals--> CharacterAttributes._on_action
-CharacterEntity <Connects> ActionManager --signals--> ._on_player_event
+# CharacterActionManager
+  CharacterActionManager {'signal'} _action
+  CharacterActionManager {has} _on_input --[Emits]--> _action
+CharacterEntity <Connects> CharacterActionManager --signals--> CharacterAttributes._on_action
+CharacterEntity <Connects> CharacterActionManager --signals--> ._on_player_event
 CharacterEntity <Connects> CharacterAttributes --signals--> CharacterBody._on_attribute
 # CharacterBody
-  CharacterBody {'signal'} _on_character_event
-  <from_env> --[Emits]--> _on_character_event
-CharacterEntity <Connects> CharacterBody --signals--> ActionManager._on_
+  CharacterBody {'signal'} _character_event
+  <from_env> --[Emits]--> _character_event
+CharacterEntity <Connects> CharacterBody --signals--> CharacterActionManager._on_character_event
 
 
 
+
+
+
+
+
+# ActionManager
+ActionManager [contains] PubSub
+ActionManager {has} _on_input(input) -> process_input(input)
+ActionManager {has} _subscribe('pubid',cb) -> PubSub.subscribe('pubid',cb)
+ActionManager {has} _register() -> PubSub.register(pubids)
+ActionManager {has} _base_ready() -> _register()
+ActionManager {has} _on_ready_() -> _base_ready() _custom_ready()
+
+ActionManager [contains] 'virtual' pubids
+ActionManager {'virtual'} _custom_ready() -> 
+ActionManager {'virtual'} process_input(input)
+  PubSub.publish{'action_type', data}
+
+
+# BodyManager
+BodyManager {has} new_body(body_config) // Adds collision shapes, animations, and areas etc...
+  ]*instantiates*-> BodyType
+  BodyType.config(body_config)
+BodyManager {'signal'} _body_event
+<from_env> --[Emits]--> _body_event
+
+
+# PubSub
+PubSub [contains] Subs[{id,cb},{id,cb}]
+PubSub {has} register(ids)
+PubSub {has} publish('pubid',data)
+PubSub {has} subscribe('pubid',cb)
+PubSub {has} listen('pubid',cb)
+
+# BlockManager
+
+
+<Connects> BlockEntity._block_event --signals--> xxxx
+
+
+# BlockEntity
+BlockEntity [contains] InputHandler
+BlockEntity [contains] BlockBody
+BlockEntity [contains] BlockActionManager
+BlockEntity [contains] BlockAttributes
+BlockEntity [contains] AnimatedEntity
+
+BlockEntity {'signal'} _block_event
+BlockEntity {has} _on_block_event --[Emits]--> _block_event
+BlockEntity {has} _on_InputHandler --calls--> BlockActionManager._on_input
+BlockEntity {has} _on_Configure --calls--> BlockAttributes._configure
+# BlockActionManager
+  BlockActionManager {'signal'} _action
+  BlockActionManager {has} _on_input --[Emits]--> _action
+BlockEntity <Connects> BlockActionManager --signals--> BlockAttributes._on_action
+BlockEntity <Connects> BlockActionManager --signals--> ._on_block_event
+BlockEntity <Connects> BlockAttributes --signals--> BlockBody._on_attribute
+
+
+# BlockBody
+  BlockBody {'signal'} _block_event
+  <from_env> --[Emits]--> _block_event
+BlockEntity <Connects> BlockBody --signals--> BlockActionManager._on_block_event
+
+
+
+# AnimatedEntity
 
 ```
