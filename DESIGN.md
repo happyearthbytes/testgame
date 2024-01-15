@@ -204,11 +204,10 @@ PubSub {has} register_sub(sub)
 SubSub {has} register_pub(pub)
 PubSub {has} _get_sig('pubid')
 SubSub {has} _subscribe('pubid',sub_cb)
-
 # Publisher
-Publisher {'virtual'} publishes = {'ids':sig}
+Publisher {'virtual'} _publishes = {'ids':sig}
 # Subscriber
-Subscriber {'virtual'} subscribes = {'ids':cb}
+Subscriber {'virtual'} _subscribes = {'ids':cb}
 
 # BlockManager
 
