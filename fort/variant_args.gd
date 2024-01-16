@@ -1,7 +1,7 @@
 extends Object
 class_name VariantArgs
 
-# var __args need to override
+# var __name need to override
 
 func _init():
 	assert(false, "Need to overried _init")

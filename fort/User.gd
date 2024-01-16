@@ -3,7 +3,7 @@ class_name User
 
 const __name : String = "user"
 
-func __init(args_in: VariantArgs):
+func __entity_init(args_in: VariantArgs):
 	var args : Args = args_in
 
 class Args extends VariantArgs:
