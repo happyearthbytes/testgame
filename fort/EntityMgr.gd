@@ -12,5 +12,5 @@ func __entity_type():
 	assert(false, "__entity_type not set")
 	return
 
-func create_entity(varargs: Variant) -> Entity:
+func create_entity(varargs: Array[Variant]) -> Entity:
 	return base_entity_mgr.create_entity(varargs)
