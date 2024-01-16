@@ -8,7 +8,7 @@ func __entity_init(args_in: VariantArgs):
 
 class Args extends VariantArgs:
 	const __name = "UserArgs"
-	
+
 	var user_type : UserMgr.UserType
 	var user_name : String
 
