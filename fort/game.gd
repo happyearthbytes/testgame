@@ -14,7 +14,6 @@ func _ready():
 	user_mgr.add_local_user()
 
 
-
 func _process(delta):
 	pass
 
