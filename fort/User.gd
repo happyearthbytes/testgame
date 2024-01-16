@@ -6,6 +6,9 @@ const __name : String = "user"
 func __entity_init(args_in: VariantArgs):
 	var args : Args = args_in
 
+func __entity_type():
+	return
+
 class Args extends VariantArgs:
 	const __name = "UserArgs"
 

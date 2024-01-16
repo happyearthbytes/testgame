@@ -13,5 +13,8 @@ func _ready():
 	user_mgr = UserMgr.new(id.new_child("user_mgr"),UserMgr.Args.new())
 	user_mgr.add_local_user()
 
+
+
 func _process(delta):
 	pass
+
