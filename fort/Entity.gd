@@ -1,22 +1,17 @@
 extends Object
 class_name Entity
 
-var args : VariantArgs
+var id : ID
 
-func _init(varargs: Array[Variant]):
-	var args_type = __entity_arg_type()
-	args = _unpack_args(varargs, args_type)
-	__init(args)
+func _init(id_in : ID, args_in: VariantArgs):
+	id = id_in
+	if "__name" not in self:
+		assert(false, "Need to add name")
+	__init(args_in)
 
-func _unpack_args(args: Array[Variant], args_type) -> VariantArgs:
-	return args_type.new(args)
-	
-func __init(varargs: VariantArgs):
+func __init(args_in: VariantArgs):
 	assert(false, "Need to overried __init")
 
-
-
-func __entity_arg_type(): # VariantArgs
-	assert(false, "Need to overried __entity_arg_type")
-	return
-
+class Args extends VariantArgs:
+	func _init():
+		assert(false, "Need to overried Args")

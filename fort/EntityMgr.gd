@@ -9,8 +9,8 @@ func _init(id_in : ID):
 	base_entity_mgr = BaseEntityMgr.new(__entity_type())
 
 func __entity_type():
-	assert(false, "__entity_type not set")
+	assert(false, "Need to overried __entity_type")
 	return
 
-func create_entity(varargs: Array[Variant]) -> Entity:
-	return base_entity_mgr.create_entity(varargs)
+func create_entity(varargs: VariantArgs) -> Entity:
+	return base_entity_mgr.create_entity(id.next_child(__entity_type().__name), varargs)

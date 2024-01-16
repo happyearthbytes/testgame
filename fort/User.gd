@@ -1,21 +1,17 @@
 extends Entity
 class_name User
 
+const __name : String = "user"
 
+func __init(args_in: VariantArgs):
+	var args : Args = args_in
 
-func __entity_arg_type(): # Entity
-	return UserArgs
-
-func __init(vargs: VariantArgs):
-	var argval : UserArgs = vargs as UserArgs
-	print(argval)
+class Args extends VariantArgs:
+	const __name = "UserArgs"
 	
-class UserArgs extends VariantArgs:
-	var __name = "UserArgs"
 	var user_type : UserMgr.UserType
 	var user_name : String
 
-	func __set_args(args: Array[Variant]):
-		user_type = args[0]
-		user_name = args[1]
-
+	func _init(user_type_in : UserMgr.UserType, user_name_in : String):
+		user_name = user_name_in
+		user_type = user_type_in
