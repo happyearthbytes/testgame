@@ -1,10 +1,10 @@
 extends Object
 class_name VariantArgs
 
-# var __name need to override
+# var __name # override
 
-func _init():
-	assert(false, "Need to overried _init")
+func _init(): # override
+	pass
 
 func _to_string():
 	var props = self.get_property_list().filter(

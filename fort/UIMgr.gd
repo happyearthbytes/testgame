@@ -1,7 +1,7 @@
 extends Entity
-class_name BodyMgr
+class_name UIMgr
 
-const __name : String = "body_mgr"
+const __name : String = "ui_mgr"
 
 func __entity_init(args_in: VariantArgs):
 	pass

@@ -1,10 +1,7 @@
 extends Entity
-class_name BodyMgr
+class_name EnemyMgr
 
-const __name : String = "body_mgr"
-
-func __entity_init(args_in: VariantArgs):
-	pass
+const __name : String = "enemy_mgr"
 
 func add():
 	create_entity(Game, Game.Args.new())

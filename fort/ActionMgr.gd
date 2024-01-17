@@ -1,11 +1,13 @@
-extends Node
+extends Entity
 class_name ActionMgr
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const __name : String = "action_mgr"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func __entity_init(args_in: VariantArgs):
 	pass
+
+func add():
+	create_entity(Game, Game.Args.new())
+
+class Args extends VariantArgs: pass
+
