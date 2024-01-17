@@ -10,11 +10,10 @@ var block_mgr : BlockMgr
 var network_mgr : NetworkMgr
 var ui_mgr : UIMgr
 
-
-
 func __entity_init(args_in: VariantArgs):
-	user_mgr = create_entity(UserMgr, UserMgr.Args.new())
-	user_mgr.add_local_user()
+	user_mgr = create_entity(UserMgr, UserMgr.Args.new(UserMgr.UserType.LOCAL_USER, "local_user"))
+	
+	
 	enemy_mgr = create_entity(EnemyMgr, EnemyMgr.Args.new())
 	world_mgr = create_entity(WorldMgr, WorldMgr.Args.new())
 	block_mgr = create_entity(BlockMgr, BlockMgr.Args.new())

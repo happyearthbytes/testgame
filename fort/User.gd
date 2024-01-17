@@ -6,6 +6,7 @@ const __name : String = "user"
 func new_player():
 	create_entity(PlayerMgr, PlayerMgr.Args.new())
 
+
 class Args extends VariantArgs:
 	const __name = "UserArgs"
 	var user_type : UserMgr.UserType

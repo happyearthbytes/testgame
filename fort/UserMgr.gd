@@ -5,10 +5,15 @@ const __name : String = "user_mgr"
 
 enum UserType {LOCAL_USER, REMOTE_USER}
 
-func add_user(user_type: UserType, user_name: String):
-	create_entity(User, User.Args.new(user_type, user_name))
+func __entity_init(_args_in: VariantArgs):
+	var args : Args = _args_in
+	var user : User = create_entity(User, User.Args.new(args.user_type, args.user_name))
 
-func add_local_user():
-	add_user(UserType.LOCAL_USER, "local_user")
-
-class Args extends VariantArgs: pass
+class Args extends VariantArgs:
+	var __name = "UserMgrArgs"
+	var user_type : UserType
+	var user_name : String
+	func _init(user_type_in: UserType, user_name_in: String):
+		user_type = user_type_in
+		user_name = user_name_in
+		
