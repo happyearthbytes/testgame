@@ -50,10 +50,10 @@ func remove_child_by_id(child_in: ID):
 	remove_child_by_id_str(child_in.id)
 
 func new_child(name_in: String, inst_in: String = DEFAULT_INST) -> ID:
-	var new_child = ID.new(id,name_in,inst_in)
-	print("New ID: %s -> %s" % [self, new_child])
-	_add_child(new_child)
-	return new_child
+	var new_child_Id = ID.new(id,name_in,inst_in)
+	print("New ID: %s -> %s" % [self, new_child_Id])
+	_add_child(new_child_Id)
+	return new_child_Id
 	
 func next_child(name_in: String) -> ID:
 	var next_inst = _next_inst_n.get(name_in,0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw8ddfwisfnko"]
+[gd_scene load_steps=7 format=3 uid="uid://cpkg1lnorv4bl"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_6jj5a"]
 [ext_resource type="Script" path="res://InputMgr.gd" id="2_gb3cc"]

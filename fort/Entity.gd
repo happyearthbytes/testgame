@@ -10,10 +10,11 @@ func _init(id_in : ID, args_in: VariantArgs):
 	id = id_in
 	if "__name" not in self:
 		assert(false, "Need to add name")
-	__entity_init(args_in)
 	entity_type = __entity_type()
+	__entity_init(args_in)
 
-func __entity_init(args_in: VariantArgs):
+
+func __entity_init(_args_in: VariantArgs):
 	assert(false, "Need to overried __entity_init")
 
 func __entity_type():
