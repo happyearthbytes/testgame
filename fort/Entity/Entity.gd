@@ -3,11 +3,13 @@ class_name Entity
 
 var id : ID
 #var entity_type # Entity
+var msg : Msg
 var pool : Array[Entity]
 # var __main : String = "entity_name"
 
 func _init(id_in : ID, args_in: VariantArgs):
 	id = id_in
+	msg = Msg.new(id)
 	if "__name" not in self:
 		assert(false, "Need to add name")
 	#entity_type = __entity_type()

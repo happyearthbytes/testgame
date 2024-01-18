@@ -19,6 +19,10 @@ boot_splash/image="res://icon.png"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[autoload]
+
+msg_bus="*res://msg_bus.gd"
+
 [display]
 
 window/size/viewport_width=2560

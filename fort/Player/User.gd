@@ -3,9 +3,13 @@ class_name User
 
 const __name : String = "user"
 
-func new_player():
-	create_entity(PlayerMgr, PlayerMgr.Args.new())
+# Creates a player Manager for your user
+func __entity_init(_args_in: VariantArgs):
+	var args : Args = _args_in
+	var player_mgr : PlayerMgr = new_player_mgr()
 
+func new_player_mgr():
+	create_entity(PlayerMgr, PlayerMgr.Args.new())
 
 class Args extends VariantArgs:
 	const __name = "UserArgs"
