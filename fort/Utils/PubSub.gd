@@ -1,6 +1,7 @@
 extends Node
 class_name Msg
 
+var log : Logger = Logger.new(Logger.LogLevel.INFO)
 var id : ID
 var pub_map : Dictionary
 
@@ -18,14 +19,13 @@ func sleep():
 # use to publish on a topic (With your ID)
 func publish(topic, data=null):
 	var sig = pub_map.get(topic)
-	print("  (" + topic + ") " + str(sig) + " ->")
+	log.debug("  (" + topic + ") " + str(sig) + " ->")
 	sig.emit(data)
 
 # User to register a signal with a publish topic (With your ID)
 func register(topic, sig):
 	pub_map[topic] = sig
 	new_publish_sig.emit(id, topic, sig)
-	await signal
 
 # Subscribe to a topic with the callback function
 func subscribe(owner_id, topic, call_back):

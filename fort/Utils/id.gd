@@ -1,6 +1,8 @@
 extends Object
 class_name ID
 
+var log : Logger = Logger.new(Logger.LogLevel.INFO)
+
 var _next_inst_n : Dictionary # name to next_inst_n
 var _children : Dictionary
 
@@ -51,7 +53,7 @@ func remove_child_by_id(child_in: ID):
 
 func new_child(name_in: String, inst_in: String = DEFAULT_INST) -> ID:
 	var new_child_Id = ID.new(id,name_in,inst_in)
-	print("New ID: %s -> %s" % [self, new_child_Id])
+	log.debug("New ID: %s -> %s" % [self, new_child_Id])
 	_add_child(new_child_Id)
 	return new_child_Id
 	

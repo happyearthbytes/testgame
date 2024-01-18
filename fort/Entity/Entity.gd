@@ -1,6 +1,7 @@
 extends Object
 class_name Entity
 
+var log : Logger = Logger.new(Logger.LogLevel.INFO)
 var id : ID
 #var entity_type # Entity
 var msg : Msg
