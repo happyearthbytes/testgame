@@ -34,8 +34,6 @@ func _on_new_subscribe_sig(id: ID, owner_id, topic, call_back):
 		var pub_sig : Signal = pub_topic["signal"]
 		pub_sig.connect(call_back)
 		log.debug("  connect-s: " + str(pub_sig) + " -> " + str(call_back))
-		pub_sig.emit("hiii")
-		print(call_back)
 		return
 	var current : Array
 	if topic in needs_sub:
