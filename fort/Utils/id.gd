@@ -1,7 +1,7 @@
 extends Object
 class_name ID
 
-var log : Logger = Logger.new(Logger.LogLevel.INFO)
+var log : Logger = Logger.new(Logger.LogLevel.INFO, "id")
 
 var _next_inst_n : Dictionary # name to next_inst_n
 var _children : Dictionary

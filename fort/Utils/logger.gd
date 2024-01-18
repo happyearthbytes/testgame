@@ -8,12 +8,21 @@ const LevelMap : Dictionary = {
 	LogLevel.WARNING: "warning",
 	LogLevel.ERROR: "error",
 }
-
+const LevelColor : Dictionary = {
+	LogLevel.DEBUG: "cyan",
+	LogLevel.INFO: "green",
+	LogLevel.WARNING: "yellow",
+	LogLevel.ERROR: "red",
+}
 var level : LogLevel = LogLevel.INFO
+var logger_name : String
 
-func _init(level_in: LogLevel = LogLevel.INFO):
+func _init(level_in: LogLevel = LogLevel.INFO, logger_name_in: String = "default"):
 	set_level(level_in)
+	set_name(logger_name_in)
 
+func set_name(logger_name_in: String):
+	logger_name = logger_name_in
 func set_level(level_in: LogLevel):
 	level = level_in
 
@@ -28,7 +37,7 @@ func set_error():
 
 func _log(level_in: LogLevel, msg):
 	if level <= level_in:
-		print("[" + LevelMap[level_in] + "] " + str(msg))
+		print_rich("[color=" + LevelColor[level_in] + "][b][" + LevelMap[level_in] + "][/b]\t(" + logger_name + ")[/color] " + str(msg))
 
 func debug(msg):
 	_log(LogLevel.DEBUG, msg)

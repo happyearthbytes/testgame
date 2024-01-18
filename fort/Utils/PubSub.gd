@@ -1,7 +1,7 @@
 extends Node
 class_name Msg
 
-var log : Logger = Logger.new(Logger.LogLevel.INFO)
+var log : Logger = Logger.new(Logger.LogLevel.DEBUG, "msg")
 var id : ID
 var pub_map : Dictionary
 
@@ -12,9 +12,6 @@ func _init(id_in: ID):
 	id = id_in
 	new_publish_sig.connect(msg_bus._on_new_publish_sig)
 	new_subscribe_sig.connect(msg_bus._on_new_subscribe_sig)
-
-func sleep():
-	print("sleepy")	
 
 # use to publish on a topic (With your ID)
 func publish(topic, data=null):

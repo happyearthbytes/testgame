@@ -1,7 +1,7 @@
 extends Node
 class_name MsgBus
 
-var log : Logger = Logger.new(Logger.LogLevel.DEBUG)
+var log : Logger = Logger.new(Logger.LogLevel.DEBUG,"bus")
 var pub_map : Dictionary
 var sub_map : Array[Dictionary]
 var needs_sub : Dictionary
@@ -34,6 +34,8 @@ func _on_new_subscribe_sig(id: ID, owner_id, topic, call_back):
 		var pub_sig : Signal = pub_topic["signal"]
 		pub_sig.connect(call_back)
 		log.debug("  connect-s: " + str(pub_sig) + " -> " + str(call_back))
+		pub_sig.emit("hiii")
+		print(call_back)
 		return
 	var current : Array
 	if topic in needs_sub:

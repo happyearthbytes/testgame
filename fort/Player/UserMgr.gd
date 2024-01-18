@@ -12,7 +12,7 @@ func __entity_init(_args_in):
 	
 func _on_new_user(args: Args):
 	var user : User = create_entity(User, User.Args.new(args.user_type, args.user_name))
-	msg.publish("new_player_mgr")
+	msg.publish("new_player_mgr", PlayerMgr.Args.new())
 
 class Args extends VariantArgs:
 	var __name = "UserMgrArgs"

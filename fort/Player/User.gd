@@ -9,8 +9,7 @@ func __entity_init(_args_in: VariantArgs):
 	var args : Args = _args_in
 	msg.subscribe_all("new_player_mgr",_on_new_player_mgr)
 
-func _on_new_player_mgr():
-	print("did we do")
+func _on_new_player_mgr(_args_in: VariantArgs):
 	player_mgr = create_entity(PlayerMgr, PlayerMgr.Args.new())
 
 class Args extends VariantArgs:

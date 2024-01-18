@@ -10,10 +10,10 @@ var pool : Array[Entity]
 
 func _init(id_in : ID, args_in: VariantArgs):
 	id = id_in
+	log.set_name(get("__name"))
 	msg = Msg.new(id)
 	if "__name" not in self:
 		assert(false, "Need to add name")
-	#entity_type = __entity_type()
 	__entity_init(args_in)
 
 func __entity_init(_args_in):
