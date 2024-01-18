@@ -1,4 +1,4 @@
-extends Object
+extends Node
 class_name Msg
 
 var id : ID
@@ -12,15 +12,20 @@ func _init(id_in: ID):
 	new_publish_sig.connect(msg_bus._on_new_publish_sig)
 	new_subscribe_sig.connect(msg_bus._on_new_subscribe_sig)
 
+func sleep():
+	print("sleepy")	
+
 # use to publish on a topic (With your ID)
-func publish(topic, data):
+func publish(topic, data=null):
 	var sig = pub_map.get(topic)
+	print("  (" + topic + ") " + str(sig) + " ->")
 	sig.emit(data)
 
 # User to register a signal with a publish topic (With your ID)
-func publish_sig(topic, sig):
+func register(topic, sig):
 	pub_map[topic] = sig
 	new_publish_sig.emit(id, topic, sig)
+	await signal
 
 # Subscribe to a topic with the callback function
 func subscribe(owner_id, topic, call_back):

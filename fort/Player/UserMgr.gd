@@ -4,10 +4,15 @@ class_name UserMgr
 const __name : String = "user_mgr"
 
 enum UserType {LOCAL_USER, REMOTE_USER}
+signal new_player_mgr
 
-func __entity_init(_args_in: VariantArgs):
-	var args : Args = _args_in
+func __entity_init(_args_in):
+	msg.subscribe_all("new_user",_on_new_user)
+	msg.register("new_player_mgr",new_player_mgr)
+	
+func _on_new_user(args: Args):
 	var user : User = create_entity(User, User.Args.new(args.user_type, args.user_name))
+	msg.publish("new_player_mgr")
 
 class Args extends VariantArgs:
 	var __name = "UserMgrArgs"

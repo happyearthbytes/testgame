@@ -16,4 +16,4 @@ func _to_string():
 		).reduce(
 			func(x,y): return x + ", " + y
 		)
-	return "%s(%s)" % [get("__name"), props]
+	return "%s(%s)" % [("__name"), props]

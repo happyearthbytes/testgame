@@ -15,10 +15,12 @@ func _init(id_in : ID, args_in: VariantArgs):
 	#entity_type = __entity_type()
 	__entity_init(args_in)
 
-func __entity_init(_args_in: VariantArgs):
+func __entity_init(_args_in):
 	pass
 
-func create_entity(entity_type, varargs: VariantArgs) -> Entity:
+func create_entity(entity_type, varargs=null) -> Entity:
+	if varargs == null:
+		pass
 	var new_entity : Entity = entity_type.new(id.next_child(entity_type.__name), varargs)
 	pool.append(new_entity)
 	return new_entity
