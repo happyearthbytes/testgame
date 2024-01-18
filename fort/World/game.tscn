@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpkg1lnorv4bl"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_6jj5a"]
-[ext_resource type="Script" path="res://InputMgr.gd" id="2_gb3cc"]
-[ext_resource type="Script" path="res://ActionMgr.gd" id="3_01mwk"]
-[ext_resource type="Script" path="res://BodyMgr.gd" id="3_f1xkm"]
-[ext_resource type="Script" path="res://PubSub.gd" id="5_7xik5"]
-[ext_resource type="Script" path="res://Attributes.gd" id="12_lfaec"]
+[ext_resource type="Script" path="res://World/game.gd" id="1_6jj5a"]
+[ext_resource type="Script" path="res://IO/InputMgr.gd" id="2_gb3cc"]
+[ext_resource type="Script" path="res://Entity/ActionMgr.gd" id="3_01mwk"]
+[ext_resource type="Script" path="res://Entity/BodyMgr.gd" id="3_f1xkm"]
+[ext_resource type="Script" path="res://Utils/PubSub.gd" id="5_7xik5"]
+[ext_resource type="Script" path="res://Utils/Attributes.gd" id="12_lfaec"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_6jj5a")
