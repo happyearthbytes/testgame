@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-msg_bus="*res://msg_bus.gd"
+msg_bus="*res://Utils/msg_bus.gd"
 
 [display]
 

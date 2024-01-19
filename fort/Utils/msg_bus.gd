@@ -1,7 +1,7 @@
 extends Node
 class_name MsgBus
 
-var log : Logger = Logger.new(Logger.LogLevel.DEBUG,"bus")
+var log : Logger = Logger.new(Logger.LogLevel.INFO,"bus", "pink")
 var pub_map : Dictionary
 var sub_map : Array[Dictionary]
 var needs_sub : Dictionary

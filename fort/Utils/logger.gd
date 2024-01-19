@@ -2,6 +2,7 @@ extends Object
 class_name Logger
 
 enum LogLevel {DEBUG=1,INFO=2,WARNING=3,ERROR=4}
+var custom_color : String = "white"
 const LevelMap : Dictionary = {
 	LogLevel.DEBUG: "debug",
 	LogLevel.INFO: "info",
@@ -17,9 +18,13 @@ const LevelColor : Dictionary = {
 var level : LogLevel = LogLevel.INFO
 var logger_name : String
 
-func _init(level_in: LogLevel = LogLevel.INFO, logger_name_in: String = "default"):
+func _init(level_in: LogLevel = LogLevel.INFO, logger_name_in: String = "default", custom_color_in: String = "white"):
 	set_level(level_in)
 	set_name(logger_name_in)
+	set_color(custom_color_in)
+
+func set_color(custom_color_in: String):
+	custom_color = custom_color_in
 
 func set_name(logger_name_in: String):
 	logger_name = logger_name_in
@@ -37,7 +42,7 @@ func set_error():
 
 func _log(level_in: LogLevel, msg):
 	if level <= level_in:
-		print_rich("[color=" + LevelColor[level_in] + "][b][" + LevelMap[level_in] + "][/b]\t(" + logger_name + ")[/color] " + str(msg))
+		print_rich("[color=" + LevelColor[level_in] + "][b][" + LevelMap[level_in] + "][/b][/color]\t[color="+ custom_color + "](" + logger_name + ")[/color] " + str(msg))
 
 func debug(msg):
 	_log(LogLevel.DEBUG, msg)

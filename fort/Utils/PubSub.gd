@@ -1,7 +1,7 @@
 extends Node
 class_name Msg
 
-var log : Logger = Logger.new(Logger.LogLevel.DEBUG, "msg")
+var log : Logger = Logger.new(Logger.LogLevel.DEBUG, "msg", "black")
 var id : ID
 var pub_map : Dictionary
 
@@ -16,7 +16,7 @@ func _init(id_in: ID):
 # use to publish on a topic (With your ID)
 func publish(topic, data=null):
 	var sig = pub_map.get(topic)
-	log.debug("  (" + topic + ") " + str(sig) + " ->")
+	log.debug("  (" + topic + ") " + str(sig) + "\n\t\t\t\t = " + str(data) + " ->")
 	sig.emit(data)
 
 # User to register a signal with a publish topic (With your ID)
