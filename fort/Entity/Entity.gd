@@ -1,4 +1,4 @@
-extends Object
+extends Node2D
 class_name Entity
 
 var log : Logger = Logger.new(Logger.LogLevel.INFO)
@@ -24,6 +24,7 @@ func create_entity(entity_type, varargs=null) -> Entity:
 		pass
 	var new_entity : Entity = entity_type.new(id.next_child(entity_type.__name), varargs)
 	pool.append(new_entity)
+	add_child(new_entity)
 	return new_entity
 	
 class Args extends VariantArgs:

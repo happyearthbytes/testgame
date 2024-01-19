@@ -1,7 +1,7 @@
 extends Entity
 class_name BlockMgr
 
-const __name : String = "block_mgr"
+const __name : String = "bl_m"
 
 func __entity_init(args_in: VariantArgs):
 	pass

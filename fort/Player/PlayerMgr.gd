@@ -1,7 +1,7 @@
 extends Entity
 class_name PlayerMgr
 
-const __name : String = "player_mgr"
+const __name : String = "pl_m"
 signal player_reset
 
 func __entity_init(_args_in: VariantArgs):

@@ -1,7 +1,7 @@
 extends Entity
 class_name UserMgr
 
-const __name : String = "user_mgr"
+const __name : String = "usr_m"
 
 enum UserType {LOCAL_USER, REMOTE_USER}
 signal new_player_mgr

@@ -1,7 +1,7 @@
 extends Entity
 class_name User
 
-const __name : String = "user"
+const __name : String = "usr"
 var player_mgr : PlayerMgr
 
 signal new_player
@@ -14,7 +14,7 @@ func __entity_init(_args_in: VariantArgs):
 	
 func _on_new_player_mgr(_args_in: VariantArgs):
 	player_mgr = create_entity(PlayerMgr, PlayerMgr.Args.new())
-	msg.publish("new_player", Player.Args.new())
+	msg.publish("new_player", PlayerMgr.Args.new())
 
 class Args extends VariantArgs:
 	const __name = "UserArgs"

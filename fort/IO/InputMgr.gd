@@ -1,11 +1,12 @@
-extends Node
-class_name InputMgr
+extends Entity
+class_name InputMgrs
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const __name : String = "in_m"
+var key_input : KeyInput
 
+func __entity_init(_args_in: VariantArgs):
+	var args : Args = _args_in
+	key_input = create_entity(KeyInput, KeyInput.Args.new())
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+class Args extends VariantArgs: pass
+

@@ -26,7 +26,7 @@ func _name_inst_to_str(name_in: String, inst_in: String = DEFAULT_INST) -> Strin
 	if inst_in == DEFAULT_INST:
 		name_inst = id_name
 	else:
-		name_inst = "%s-%s" %[name_in,inst_in]
+		name_inst = "%s%s" %[name_in,inst_in]
 	return name_inst
 
 func _to_string() -> String:
