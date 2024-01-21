@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var card_scene = preload("res://deck/card.tscn")
 var cards : Array
-var number_of_cards = 5
+var number_of_cards = 10
 var card_spacing = 32 + 8
 var count = 0
 
