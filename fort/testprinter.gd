@@ -1,7 +1,7 @@
 extends Node
 
 
-@onready var block = preload("res://block.tscn")
+@onready var block = preload("res:///block/block.tscn")
 
 var tiles : Array
 var pos : Vector2

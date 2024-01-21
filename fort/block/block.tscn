@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca0ce0ilgoj6j"]
+
+[ext_resource type="Texture2D" uid="uid://b7kqrvtiqivuv" path="res://assets/terrain/twosided/youngwheat.png" id="1_dvykb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ikgu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dvykb")
+hframes = 5
+vframes = 6
+frame = 27
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_3ikgu")

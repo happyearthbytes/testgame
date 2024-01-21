@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsoxpjemx2122"]
+[gd_scene load_steps=6 format=3 uid="uid://bsoxpjemx2122"]
 
 [ext_resource type="Script" path="res://InputManager.gd" id="1_2wyp2"]
 [ext_resource type="Script" path="res://game.gd" id="1_wjj8k"]
 [ext_resource type="Script" path="res://testprinter.gd" id="3_jctys"]
-[ext_resource type="Script" path="res://TerrainManager.gd" id="4_pwo81"]
+[ext_resource type="Script" path="res://block/TerrainManager.gd" id="4_dds3h"]
+[ext_resource type="PackedScene" uid="uid://bket8bqvdswgh" path="res://player/player.tscn" id="5_1n8nd"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wjj8k")
@@ -15,4 +16,7 @@ script = ExtResource("1_2wyp2")
 script = ExtResource("3_jctys")
 
 [node name="TerrainManager" type="Node2D" parent="."]
-script = ExtResource("4_pwo81")
+script = ExtResource("4_dds3h")
+
+[node name="Player" parent="." instance=ExtResource("5_1n8nd")]
+position = Vector2(206, 113)
