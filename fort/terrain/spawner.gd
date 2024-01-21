@@ -4,15 +4,15 @@ var count : int = 0
 
 @onready var character = preload("res://player/character.tscn")
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	Sig.play_card.connect(spawn_character)
+	
+func spawn_character(card_type: String):
+	var new_character = character.instantiate()
+	add_child(new_character)
+	print("New character ", card_type)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if count % 1000 == 0:
-		var new_character = character.instantiate()
-		add_child(new_character)
-		print("New character")
-	count += 1
+	pass
