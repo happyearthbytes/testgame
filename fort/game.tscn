@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsoxpjemx2122"]
+
+[ext_resource type="Script" path="res://InputManager.gd" id="1_2wyp2"]
+[ext_resource type="Script" path="res://game.gd" id="1_wjj8k"]
+[ext_resource type="Script" path="res://testprinter.gd" id="3_jctys"]
+[ext_resource type="Script" path="res://TerrainManager.gd" id="4_pwo81"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_wjj8k")
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("1_2wyp2")
+
+[node name="testprinter" type="Node" parent="."]
+script = ExtResource("3_jctys")
+
+[node name="TerrainManager" type="Node2D" parent="."]
+script = ExtResource("4_pwo81")
