@@ -2,21 +2,20 @@
 
 [ext_resource type="Script" path="res://InputManager.gd" id="1_2wyp2"]
 [ext_resource type="Script" path="res://game.gd" id="1_wjj8k"]
-[ext_resource type="Script" path="res://testprinter.gd" id="3_jctys"]
-[ext_resource type="Script" path="res://block/TerrainManager.gd" id="4_dds3h"]
 [ext_resource type="PackedScene" uid="uid://bket8bqvdswgh" path="res://player/player.tscn" id="5_1n8nd"]
+[ext_resource type="PackedScene" uid="uid://qfsugkrk8nha" path="res://terrain/castle.tscn" id="5_gyc01"]
+[ext_resource type="PackedScene" uid="uid://bcpygopoq6lki" path="res://terrain/background.tscn" id="6_e8006"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wjj8k")
 
+[node name="Background" parent="." instance=ExtResource("6_e8006")]
+
+[node name="Castle" parent="." instance=ExtResource("5_gyc01")]
+position = Vector2(72, 230)
+
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("1_2wyp2")
-
-[node name="testprinter" type="Node" parent="."]
-script = ExtResource("3_jctys")
-
-[node name="TerrainManager" type="Node2D" parent="."]
-script = ExtResource("4_dds3h")
 
 [node name="Player" parent="." instance=ExtResource("5_1n8nd")]
 position = Vector2(206, 113)

@@ -10,7 +10,6 @@ func set_input_handler():
 	Sig.new_direction.connect(_on_new_direction)
 
 func _on_new_direction(direction_in: Vector2):
-	print(direction_in)
 	direction=direction_in
 	
 
@@ -19,5 +18,4 @@ func _ready():
 
 func _physics_process(_delta):
 	velocity = direction * speed
-	print(velocity)
 	move_and_slide()

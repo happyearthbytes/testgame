@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b76q2mdspk64l"]
+
+[ext_resource type="Script" path="res://player/CharacterBody2D.gd" id="1_t1ra6"]
+[ext_resource type="Texture2D" uid="uid://bsmr3052ar6p1" path="res://assets/creature/bee.png" id="1_v8dca"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqpwl"]
+
+[node name="Character" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_t1ra6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_v8dca")
+hframes = 3
+vframes = 4
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_yqpwl")
