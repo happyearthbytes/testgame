@@ -9,22 +9,25 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 160.0
+offset_bottom = 96.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+clip_contents = true
 layout_mode = 2
-theme_override_constants/margin_top = 8
+color = Color(1, 1, 1, 0.176471)
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_lgmuw")
+stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -34,14 +37,48 @@ offset_top = -33.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Card" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+[node name="Card" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
 
-[node name="Card2" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+[node name="Card2" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
+card_val = 1
 
-[node name="Card3" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+[node name="Card3" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
+card_val = 3
+
+[node name="Card4" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 4
+
+[node name="Card5" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 7
+
+[node name="Card6" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 10
+
+[node name="Card7" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 13
+
+[node name="Card8" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 5
+
+[node name="Card9" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 8
+
+[node name="Card10" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 11
+
+[node name="Card11" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+card_val = 14

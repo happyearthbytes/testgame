@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsoxpjemx2122"]
+[gd_scene load_steps=9 format=3 uid="uid://bsoxpjemx2122"]
 
 [ext_resource type="Script" path="res://utils/game.gd" id="1_wjj8k"]
 [ext_resource type="Script" path="res://utils/InputManager.gd" id="4_e1ccs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drskd7vbjfb0x" path="res://ui/select3.tscn" id="5_h3356"]
 [ext_resource type="PackedScene" uid="uid://bcpygopoq6lki" path="res://terrain/background.tscn" id="6_e8006"]
 [ext_resource type="PackedScene" uid="uid://4j6bm6bdyt0f" path="res://utils/debug_controls.tscn" id="7_tf1xf"]
+[ext_resource type="PackedScene" uid="uid://b3xgjpxm53r6k" path="res://ui/inventory.tscn" id="8_8qp5d"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wjj8k")
@@ -26,3 +27,5 @@ visible = false
 position = Vector2(456, 288)
 
 [node name="DebugControls" parent="." instance=ExtResource("7_tf1xf")]
+
+[node name="Inventory" parent="." instance=ExtResource("8_8qp5d")]

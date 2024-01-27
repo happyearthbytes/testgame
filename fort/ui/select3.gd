@@ -1,6 +1,6 @@
 extends Control
 
-@onready var content = $CenterContainer
+@onready var content = $MarginContainer
 var on_select3_toggle : bool = true
 
 # Called when the node enters the scene tree for the first time.
