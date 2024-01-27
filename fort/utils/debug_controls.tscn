@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://4j6bm6bdyt0f"]
+
+[ext_resource type="Texture2D" uid="uid://coj4yenr2iflr" path="res://assets/ui/dialog_box.png" id="1_lgmuw"]
+[ext_resource type="PackedScene" uid="uid://chywmylg68c1a" path="res://block/card.tscn" id="2_slvbd"]
+
+[node name="DebugControls" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 160.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_lgmuw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Card" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+
+[node name="Card2" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2
+
+[node name="Card3" parent="CenterContainer/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
+layout_mode = 2

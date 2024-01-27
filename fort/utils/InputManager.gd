@@ -20,8 +20,6 @@ func get_action():
 		input_signaler.use_tool = true
 	if Input.is_action_just_released("use_tool"):
 		input_signaler.use_tool = false
-	if Input.is_action_just_released("select3"):
-		Sig.select3.emit(true)
 		
 func get_pointer():
 	input_signaler.pointer = get_viewport().get_mouse_position()

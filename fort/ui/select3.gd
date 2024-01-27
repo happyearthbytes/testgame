@@ -1,11 +1,18 @@
 extends Control
 
 @onready var content = $CenterContainer
+var on_select3_toggle : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Sig.select3.connect(on_select3)
 
+	Sig.select_card.connect(on_check_select_card)
+
+func on_check_select_card(card_type: C.CardT, card_val: C.CardV):
+	if card_type == C.CardT.Debug:
+		if card_val == C.CardV.Toggle_Select_3:
+			on_select3_toggle = !on_select3_toggle
+			on_select3(on_select3_toggle)
 
 func on_select3(show: bool):
 	if show:

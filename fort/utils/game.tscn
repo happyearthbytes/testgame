@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsoxpjemx2122"]
+[gd_scene load_steps=8 format=3 uid="uid://bsoxpjemx2122"]
 
-[ext_resource type="Script" path="res://InputManager.gd" id="1_2wyp2"]
-[ext_resource type="Script" path="res://game.gd" id="1_wjj8k"]
+[ext_resource type="Script" path="res://utils/game.gd" id="1_wjj8k"]
+[ext_resource type="Script" path="res://utils/InputManager.gd" id="4_e1ccs"]
 [ext_resource type="PackedScene" uid="uid://cwrnaduswg5tk" path="res://block/castle.tscn" id="5_0cxlp"]
 [ext_resource type="PackedScene" uid="uid://bket8bqvdswgh" path="res://player/player.tscn" id="5_1n8nd"]
-[ext_resource type="PackedScene" uid="uid://drskd7vbjfb0x" path="res://control.tscn" id="6_ch0lc"]
+[ext_resource type="PackedScene" uid="uid://drskd7vbjfb0x" path="res://ui/select3.tscn" id="5_h3356"]
 [ext_resource type="PackedScene" uid="uid://bcpygopoq6lki" path="res://terrain/background.tscn" id="6_e8006"]
+[ext_resource type="PackedScene" uid="uid://4j6bm6bdyt0f" path="res://utils/debug_controls.tscn" id="7_tf1xf"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wjj8k")
@@ -16,10 +17,12 @@ script = ExtResource("1_wjj8k")
 position = Vector2(176, 328)
 
 [node name="InputManager" type="Node" parent="."]
-script = ExtResource("1_2wyp2")
+script = ExtResource("4_e1ccs")
 
-[node name="Select3" parent="." instance=ExtResource("6_ch0lc")]
+[node name="Select3" parent="." instance=ExtResource("5_h3356")]
 
 [node name="Player" parent="." instance=ExtResource("5_1n8nd")]
 visible = false
 position = Vector2(456, 288)
+
+[node name="DebugControls" parent="." instance=ExtResource("7_tf1xf")]

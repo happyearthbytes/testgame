@@ -6,6 +6,4 @@ signal new_use_weapon()
 signal new_use_tool()
 signal new_pointer(pointer : Vector2)
 signal play_card(card_type: String)
-signal select3(show: bool)
-
-#var terrain_manager : TerrainManager
+signal select_card(card_type: C.CardT, card_val: C.CardV)
