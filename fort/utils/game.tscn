@@ -20,12 +20,25 @@ position = Vector2(176, 328)
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("4_e1ccs")
 
-[node name="Select3" parent="." instance=ExtResource("5_h3356")]
-
 [node name="Player" parent="." instance=ExtResource("5_1n8nd")]
 visible = false
 position = Vector2(456, 288)
 
-[node name="DebugControls" parent="." instance=ExtResource("7_tf1xf")]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
-[node name="Inventory" parent="." instance=ExtResource("8_8qp5d")]
+[node name="DebugControls" parent="UI" instance=ExtResource("7_tf1xf")]
+layout_mode = 1
+
+[node name="Select3" parent="UI" instance=ExtResource("5_h3356")]
+layout_mode = 1
+offset_top = 700.0
+offset_bottom = 700.0
+
+[node name="Inventory" parent="UI" instance=ExtResource("8_8qp5d")]
+layout_mode = 1
+offset_top = 1400.0
+offset_bottom = 1400.0
