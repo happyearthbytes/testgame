@@ -26,19 +26,25 @@ position = Vector2(456, 288)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DebugControls" parent="UI" instance=ExtResource("7_tf1xf")]
 layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="Select3" parent="UI" instance=ExtResource("5_h3356")]
 layout_mode = 1
-offset_top = 700.0
-offset_bottom = 700.0
 
 [node name="Inventory" parent="UI" instance=ExtResource("8_8qp5d")]
 layout_mode = 1
-offset_top = 1400.0
-offset_bottom = 1400.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
