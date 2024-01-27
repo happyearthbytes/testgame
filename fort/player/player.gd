@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name CharacterEntity
 
 var direction = Vector2.ZERO
-var speed = 100.0
+var speed = 400.0
 
 
 func set_input_handler():

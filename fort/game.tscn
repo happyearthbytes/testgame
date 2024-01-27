@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" path="res://InputManager.gd" id="1_2wyp2"]
 [ext_resource type="Script" path="res://game.gd" id="1_wjj8k"]
+[ext_resource type="PackedScene" uid="uid://cwrnaduswg5tk" path="res://block/castle.tscn" id="5_0cxlp"]
 [ext_resource type="PackedScene" uid="uid://bket8bqvdswgh" path="res://player/player.tscn" id="5_1n8nd"]
-[ext_resource type="PackedScene" uid="uid://qfsugkrk8nha" path="res://terrain/castle.tscn" id="5_gyc01"]
+[ext_resource type="PackedScene" uid="uid://drskd7vbjfb0x" path="res://control.tscn" id="6_ch0lc"]
 [ext_resource type="PackedScene" uid="uid://bcpygopoq6lki" path="res://terrain/background.tscn" id="6_e8006"]
-[ext_resource type="PackedScene" uid="uid://bqimgvuka52rk" path="res://deck/deck.tscn" id="6_tjxjy"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wjj8k")
 
 [node name="Background" parent="." instance=ExtResource("6_e8006")]
 
-[node name="Castle" parent="." instance=ExtResource("5_gyc01")]
-position = Vector2(72, 230)
+[node name="Castle" parent="." instance=ExtResource("5_0cxlp")]
+position = Vector2(176, 328)
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("1_2wyp2")
 
-[node name="Player" parent="." instance=ExtResource("5_1n8nd")]
-position = Vector2(206, 113)
+[node name="Select3" parent="." instance=ExtResource("6_ch0lc")]
 
-[node name="Deck" parent="." instance=ExtResource("6_tjxjy")]
-position = Vector2(120, 412)
+[node name="Player" parent="." instance=ExtResource("5_1n8nd")]
+visible = false
+position = Vector2(456, 288)
