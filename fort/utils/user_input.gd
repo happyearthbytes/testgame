@@ -21,7 +21,6 @@ func _input(event):
 	e = get_event(event)
 	if e.updated:
 		pass
-		#print(e)
 
 func get_event(event) -> Event:
 	e.updated = true
@@ -54,6 +53,12 @@ class Data:
 	func _init(idx: int):
 		reset()
 		click = idx
+	func copy() -> Data:
+		var data = Data.new(click)
+		data.position = position
+		data.double_click = double_click
+		data.pressed = pressed
+		return data
 	func reset():
 		position = Vector2.ZERO
 		double_click = false
