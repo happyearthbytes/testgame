@@ -7,7 +7,10 @@ func _ready():
 	Sig.card_event.connect(handle_event)
 
 func handle_event(card: Types.Card):
-	if card.event == C.Events.Toggle_Select_3:
+	if card.ui == C.UI.Toggle_Select_3:
+		toggle()
+	if card.type == C.CardAction.AddChoice:
+		
 		toggle()
 
 func toggle():
@@ -16,3 +19,4 @@ func toggle():
 		content.show()
 	else:
 		content.hide()
+

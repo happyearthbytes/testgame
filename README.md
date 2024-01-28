@@ -3,6 +3,11 @@
 https://github.com/marketplace/actions/godot-ci
 https://opengameart.org/content/lpc-character-bases
 https://fonts.google.com/icons
+https://opengameart.org/content/burgers
+https://opengameart.org/content/adventure-theme
+https://opengameart.org/content/pushing-yourself-complete
+https://opengameart.org/content/zenostar
+https://opengameart.org/content/5-chiptunes-action
 
 
 top.location.href = window.location.href; 

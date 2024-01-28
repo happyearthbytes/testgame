@@ -10,10 +10,8 @@ offset_bottom = 40.0
 texture_normal = ExtResource("1_4p3fw")
 texture_pressed = ExtResource("2_e3tof")
 script = ExtResource("3_u5711")
-card/action = 0
-card/value = 0
-card/type = 3
-card/selection = 2
+card/type = 0
+card/selection = null
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -22,7 +20,6 @@ offset_top = 8.0
 offset_right = 56.0
 offset_bottom = 56.0
 theme_override_font_sizes/font_size = 10
-text = "None None: 0  (<null>)"
 autowrap_mode = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

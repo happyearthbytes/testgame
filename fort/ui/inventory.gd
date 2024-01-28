@@ -7,7 +7,7 @@ func _ready():
 	Sig.card_event.connect(handle_event)
 
 func handle_event(card: Types.Card):
-	if card.event == C.Events.Toggle_Inventory:
+	if card.ui == C.UI.Toggle_Inventory:
 		toggle()
 
 func toggle():
