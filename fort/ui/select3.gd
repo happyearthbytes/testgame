@@ -4,14 +4,13 @@ extends Control
 var toggle_state : bool = true
 
 func _ready():
-	Sig.card_event.connect(handle_event)
+	Sig.event.connect(handle_event)
 
-func handle_event(card: Types.Card):
-	if card.ui == C.UI.Toggle_Select_3:
+func handle_event(ev: Types.Event):
+	if ev.ui.type == Types.UI.Toggle_Select_3:
 		toggle()
-	if card.type == C.EventType.CardChoice:
-		
-		toggle()
+	if ev.type == Types.EventType.CardChoice:
+		print(ev)
 
 func toggle():
 	toggle_state = !toggle_state

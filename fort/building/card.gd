@@ -1,21 +1,22 @@
 @tool
 extends TextureButton
 
-var ok : bool = false
-var card : Types.Card = Types.Card.new()
+var event : Types.Event = Types.Event.new()
 
 func _get(property):
+	if not event:
+		return
 	#if property == "card/action":
 		#return card.action
 	#if property == "card/value":
 		#return card.value
 	if property == "card/type":
-		return card.type
+		return event.type
 	if property == "card/selection":
-		if card.type == C.EventType.UI:
-			return card.ui
-		if card.type == C.EventType.CardChoice:
-			return card.card_choice
+		if event.type == Types.EventType.UI:
+			return event.ui.type
+		if event.type == Types.EventType.CardChoice:
+			return event.card_choice
 		#if card.type == C.CardType.Building:
 			#return card.building
 		#elif card.type == C.CardType.Enhancement:
@@ -24,20 +25,22 @@ func _get(property):
 			#return card.resource
 		#elif card.type == C.CardType.Debug:
 			#return card.debug
-		
+
 func _set(property, val):
+	if not event:
+		return
 	#if property == "card/action":
 		#card.action = val
 	#if property == "card/value":
 		#card.value = val
 	if property == "card/type":            
-		card.type = val
+		event.type = val
 		notify_property_list_changed()
 	if property == "card/selection":
-		if card.type == C.EventType.UI:
-			card.ui = val
-		if card.type == C.EventType.CardChoice:
-			card.card_choice = val
+		if event.type == Types.EventType.UI:
+			event.ui.type = val
+		if event.type == Types.EventType.CardChoice:
+			event.card_choice = val
 		#if card.type == C.CardType.Building:
 			#card.building = val
 		#elif card.type == C.CardType.Enhancement:
@@ -51,6 +54,8 @@ func _set(property, val):
 	return true
 
 func _get_property_list():
+	if not event:
+		return
 	var property_list = []
 	#property_list.append({
 		#"name": "card/action",
@@ -69,15 +74,15 @@ func _get_property_list():
 		"name": "card/type",
 		"type": TYPE_INT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": ",".join(C.EventType.keys()),
+		"hint_string": ",".join(Types.EventType.keys()),
 		"usage": PROPERTY_USAGE_DEFAULT,
 	})
 	#
 	var hint_str = ""
-	if card.type == C.EventType.UI:
-		hint_str = ",".join(C.UI.keys())
-	elif card.type == C.EventType.CardChoice:
-		hint_str = ",".join(C.CardChoice.keys())
+	if event.type == Types.EventType.UI:
+		hint_str = ",".join(Types.UI.keys())
+	elif event.type == Types.EventType.CardChoice:
+		hint_str = ",".join(Types.CardChoice.keys())
 	#if card.type == C.CardType.Building:
 		#hint_str = ",".join(C.Buildings.keys())
 	##elif card.type == C.CardType.Enhancement:
@@ -97,13 +102,12 @@ func _get_property_list():
 	return property_list
 
 func update_label():
-	if not ok:
+	if not event:
 		return
-	$Label.text = str(card)
+	$Label.text = str(event)
 
 func _ready():
-	ok = true
 	update_label()
 
 func _on_pressed():
-	Sig.card_event.emit(card)
+	Sig.event.emit(event)

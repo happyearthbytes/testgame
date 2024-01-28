@@ -10,5 +10,5 @@ signal new_direction(direction: Vector2)
 #signal new_pointer(pointer : Vector2)
 #signal play_card(card_type: String)
 
-signal card_event(event: Types.Card)
+signal event(event: Types.Event)
 

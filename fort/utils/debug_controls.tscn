@@ -60,3 +60,5 @@ card/selection = 1
 
 [node name="Card4" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
+card/type = 0
+card/selection = null
