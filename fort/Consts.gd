@@ -4,7 +4,7 @@ enum EventType{
 	None,
 	Debug,
 	UI,
-	CardAction,
+	CardChoice,
 }
 enum Debug{
 	None,
@@ -14,16 +14,11 @@ enum UI{
 	Toggle_Select_3,
 	Toggle_Inventory,
 }
-# Actions that apply to all standard cards
-enum CardAction{
+enum CardChoice{
 	None,
-	AddChoice,
-	Select,
 	Add,
-	Delete,
-	CustomAction,
+	Select,
 }
-
 
 #
 #enum Resources{

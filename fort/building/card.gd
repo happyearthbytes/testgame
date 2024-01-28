@@ -14,6 +14,8 @@ func _get(property):
 	if property == "card/selection":
 		if card.type == C.EventType.UI:
 			return card.ui
+		if card.type == C.EventType.CardChoice:
+			return card.card_choice
 		#if card.type == C.CardType.Building:
 			#return card.building
 		#elif card.type == C.CardType.Enhancement:
@@ -34,6 +36,8 @@ func _set(property, val):
 	if property == "card/selection":
 		if card.type == C.EventType.UI:
 			card.ui = val
+		if card.type == C.EventType.CardChoice:
+			card.card_choice = val
 		#if card.type == C.CardType.Building:
 			#card.building = val
 		#elif card.type == C.CardType.Enhancement:
@@ -72,6 +76,8 @@ func _get_property_list():
 	var hint_str = ""
 	if card.type == C.EventType.UI:
 		hint_str = ",".join(C.UI.keys())
+	elif card.type == C.EventType.CardChoice:
+		hint_str = ",".join(C.CardChoice.keys())
 	#if card.type == C.CardType.Building:
 		#hint_str = ",".join(C.Buildings.keys())
 	##elif card.type == C.CardType.Enhancement:

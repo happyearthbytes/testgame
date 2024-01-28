@@ -9,7 +9,7 @@ func _ready():
 func handle_event(card: Types.Card):
 	if card.ui == C.UI.Toggle_Select_3:
 		toggle()
-	if card.type == C.CardAction.AddChoice:
+	if card.type == C.EventType.CardChoice:
 		
 		toggle()
 

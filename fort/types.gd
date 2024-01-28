@@ -4,18 +4,23 @@ class_name Types
 
 class Card:
 	var type: C.EventType
+	var ui: C.UI
+	var card_choice: C.CardChoice
+	
 	#var building: C.Buildings
 	#var enhancement: C.Enhancements
 	#var resource: C.Resources
 	#var action: C.CardAction
 	#var debug: C.Debug
-	var ui: C.UI
+
 	#var value: int
 	#var custom
 	func _init():
 		reset()
 	func reset():
 		type = C.EventType.None
+		ui = C.UI.None
+		card_choice = C.CardChoice.None
 		#action = C.CardAction.None
 		#debug = C.Debug.None
 		#ui = C.UI.None
@@ -25,7 +30,8 @@ class Card:
 		var typestr : String = ""
 		if type == C.EventType.UI:
 			typestr = C.UI.keys()[ui]
-
+		if type == C.EventType.CardChoice:
+			typestr = C.CardChoice.keys()[card_choice]
 		#if type == C.CardType.Building:
 			#typestr = C.Buildings.keys()[building]
 		#elif type == C.CardType.Enhancement:
