@@ -45,43 +45,17 @@ alignment = 1
 
 [node name="Card" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
+card/type = 3
+card/building = 0
 
 [node name="Card2" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
 card_val = 1
+card/type = 3
+card/building = 0
 
 [node name="Card3" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
-card_val = 3
-
-[node name="Card4" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 4
-
-[node name="Card5" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 7
-
-[node name="Card6" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 10
-
-[node name="Card7" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 13
-
-[node name="Card8" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 5
-
-[node name="Card9" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 8
-
-[node name="Card10" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 11
-
-[node name="Card11" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
-layout_mode = 2
-card_val = 14
+card_val = 2
+card/type = 3
+card/building = 0

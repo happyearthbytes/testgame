@@ -1,43 +1,71 @@
 extends Node
 
-enum CardT {
-	Debug,
-	Building,
-	Upgrade
-}
 enum CardV{
 # Debug
+	None,
 	Toggle_Select_3,
 	Toggle_Inventory,
-	Add_To_Inventory,
 	Delete_All_Buildings,
-	# Debug Building
-	Add_Barracks,
-	Add_Archery_Range,
-	Add_Gym,
-	Select_Barracks,
-	Select_Archery_Range,
-	Select_Gym,
-	Place_Barracks,
-	Place_Archery_Range,
-	Place_Gym,
-	Delete_Barracks,
-	Delete_Archery_Range,
-	Delete_Gym,
-	
-# Building Action
-	Select_Building,
-	Add_Building,
-	Place_Building,
-	Delete_Building,
+}
 
-# Upgrade
+# Fields of the card
+enum CardFields{
+	None,
+	Type,
+	Action,
+	Value,
+	CustomFields,
+}
+# types of cards that can be selected
+enum CardType{
+	None,
+	Debug,
+	Event,
+	Resource,
+	Enhancement,
+	Building,
+}
+# Actions that apply to all standard cards
+enum CardAction{
+	None,
+	AddChoice,
+	Select,
+	Add,
+	Delete,
+	CustomAction,
+}
+
+enum Debug{
+	None,
+	Toggle_Select_3,
+	Toggle_Inventory,
+}
+enum Events{
+	None,
+	Toggle_Select_3,
+	Toggle_Inventory,
+}
+
+enum Resources{
+	None,
+	Wood,
+	Stone,
+}
+enum Enhancements{
+	None,
 	MoreHP,
 	MoreSpeed,
 }
-enum Building{
+enum Buildings{
+	None,
 	Barracks,
 	Archery_Range,
 	Gym,
 }
 
+enum BuildingAction{
+	None,
+	Place,
+	Upgrade,
+	Operate,
+}

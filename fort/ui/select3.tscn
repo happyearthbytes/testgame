@@ -59,15 +59,9 @@ alignment = 1
 
 [node name="Card" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("4_lj7qr")]
 layout_mode = 2
-card_type = 1
-card_val = 4
 
 [node name="Card2" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("4_lj7qr")]
 layout_mode = 2
-card_type = 1
-card_val = 5
 
 [node name="Card3" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("4_lj7qr")]
 layout_mode = 2
-card_type = 1
-card_val = 6
