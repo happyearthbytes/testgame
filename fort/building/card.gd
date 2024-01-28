@@ -1,8 +1,7 @@
 @tool
 extends TextureButton
 
-@export var card_val : C.CardV = C.CardV.None
-
+var ok : bool = false
 var card : Types.Card = Types.Card.new()
 
 func _get(property):
@@ -12,7 +11,6 @@ func _get(property):
 		return card.value
 	if property == "card/type":
 		return card.type
-	
 	if property == "card/selection":
 		if card.type == C.CardType.Building:
 			return card.building
@@ -24,17 +22,6 @@ func _get(property):
 			return card.event
 		elif card.type == C.CardType.Debug:
 			return card.debug
-		#
-	#elif property == "card/building":
-		#return card.building
-	#elif property == "card/enhancement":
-		#return card.enhancement
-	#elif property == "card/resource":
-		#return card.resource
-	#elif property == "card/event":
-		#return card.event
-	#elif property == "card/debug":
-		#return card.debug
 		
 func _set(property, val):
 	if property == "card/action":
@@ -55,17 +42,7 @@ func _set(property, val):
 			card.event = val
 		elif card.type == C.CardType.Debug:
 			card.debug = val
-		#
-	#if property == "card/building":
-		#card.building = val
-	#if property == "card/enhancement":
-		#card.enhancement = val
-	#if property == "card/resource":
-		#card.resource = val
-	#if property == "card/event":
-		#card.event = val
-	#if property == "card/debug":
-		#card.debug = val
+	update_label()
 	return true
 
 func _get_property_list():
@@ -109,55 +86,16 @@ func _get_property_list():
 		"hint_string": hint_str,
 		"usage": PROPERTY_USAGE_DEFAULT,
 	})
-		#
-	#if card.type == C.CardType.Building:
-		#property_list.append({
-			#"name": "card/building",
-			#"type": TYPE_INT,
-			#"hint": PROPERTY_HINT_ENUM,
-			#"hint_string": ",".join(C.Buildings.keys()),
-			#"usage": PROPERTY_USAGE_DEFAULT,
-		#})
-	#elif card.type == C.CardType.Enhancement:
-		#property_list.append({
-			#"name": "card/enhancement",
-			#"type": TYPE_INT,
-			#"hint": PROPERTY_HINT_ENUM,
-			#"hint_string": ",".join(C.Enhancements.keys()),
-			#"usage": PROPERTY_USAGE_DEFAULT,
-		#})
-	#elif card.type == C.CardType.Resource:
-		#property_list.append({
-			#"name": "card/resource",
-			#"type": TYPE_INT,
-			#"hint": PROPERTY_HINT_ENUM,
-			#"hint_string": ",".join(C.Resources.keys()),
-			#"usage": PROPERTY_USAGE_DEFAULT,
-		#})
-	#elif card.type == C.CardType.Event:
-		#property_list.append({
-			#"name": "card/event",
-			#"type": TYPE_INT,
-			#"hint": PROPERTY_HINT_ENUM,
-			#"hint_string": ",".join(C.Event.keys()),
-			#"usage": PROPERTY_USAGE_DEFAULT,
-		#})
-	#elif card.type == C.CardType.Debug:
-		#property_list.append({
-			#"name": "card/debug",
-			#"type": TYPE_INT,
-			#"hint": PROPERTY_HINT_ENUM,
-			#"hint_string": ",".join(C.Debug.keys()),
-			#"usage": PROPERTY_USAGE_DEFAULT,
-		#})
 	return property_list
 
+func update_label():
+	if not ok:
+		return
+	$Label.text = str(card)
+
 func _ready():
-	if card_val != C.CardV.None:
-		$Label.text = C.CardV.keys()[card_val]
-	else:
-		$Label.text = str(card)
+	ok = true
+	update_label()
 
 func _on_pressed():
-	Sig.select_card.emit(card_val)
 	Sig.card_event.emit(card)
