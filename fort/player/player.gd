@@ -1,4 +1,4 @@
-@icon("res://icons/account_box_white_24dp.svg")
+@icon("res://assets/icons/account_box_white_24dp.svg")
 extends CharacterBody2D
 class_name CharacterEntity
 

@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 Sig="*res://SignalBus.gd"
 C="*res://Consts.gd"
+In="*res://utils/user_input.gd"
 
 [display]
 

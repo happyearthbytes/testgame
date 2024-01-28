@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqimgvuka52rk"]
+
+[ext_resource type="Script" path="res://unused_deck/deck.gd" id="1_pfqkd"]
+
+[node name="Deck" type="Node2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+script = ExtResource("1_pfqkd")

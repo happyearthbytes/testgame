@@ -33,7 +33,7 @@ func get_direction():
 	next_direction.normalized()
 	input_signaler.input_direction = next_direction
 
-func _process(delta):
+func _process(_delta):
 	get_direction()
 	get_action()
 	get_pointer()

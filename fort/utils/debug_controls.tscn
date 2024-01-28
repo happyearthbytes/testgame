@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4j6bm6bdyt0f"]
 
 [ext_resource type="Texture2D" uid="uid://coj4yenr2iflr" path="res://assets/ui/dialog_box.png" id="1_lgmuw"]
-[ext_resource type="PackedScene" uid="uid://chywmylg68c1a" path="res://block/card.tscn" id="2_slvbd"]
+[ext_resource type="PackedScene" uid="uid://chywmylg68c1a" path="res://building/card.tscn" id="2_slvbd"]
 
 [node name="DebugControls" type="Control"]
 layout_mode = 3

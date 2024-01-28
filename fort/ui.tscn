@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dirfmbpyqkxub"]
+
+[ext_resource type="PackedScene" uid="uid://4j6bm6bdyt0f" path="res://utils/debug_controls.tscn" id="1_608wr"]
+[ext_resource type="PackedScene" uid="uid://drskd7vbjfb0x" path="res://ui/select3.tscn" id="2_pw87u"]
+[ext_resource type="PackedScene" uid="uid://b3xgjpxm53r6k" path="res://ui/inventory.tscn" id="3_374l0"]
+
+[node name="UI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DebugControls" parent="." instance=ExtResource("1_608wr")]
+layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="Select3" parent="." instance=ExtResource("2_pw87u")]
+layout_mode = 1
+
+[node name="Inventory" parent="." instance=ExtResource("3_374l0")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
