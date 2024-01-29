@@ -57,7 +57,9 @@ event/selection = 2
 layout_mode = 2
 event/type = 3
 event/selection = 2
-event/card/type = 2
+event/card/type = 1
+event/card/attrs/selection = 1
+event/card/attrs/val = 1
 
 [node name="Card4" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2

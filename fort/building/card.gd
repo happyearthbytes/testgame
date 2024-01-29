@@ -16,7 +16,22 @@ func _get(property):
 	if property == "event/card/type":
 		if event.type == Types.Event.T.CardChoice:
 			return event.card_choice.card.type
-
+	if property == "event/card/attrs/selection":
+		if event.type == Types.Event.T.CardChoice:
+			if event.card_choice.card.type == Types.Card.T.Building:
+				return event.card_choice.card.building.type
+			if event.card_choice.card.type == Types.Card.T.Enhancement:
+				return event.card_choice.card.enhancement.type
+			if event.card_choice.card.type == Types.Card.T.Resources:
+				return event.card_choice.card.resources.type
+	if property == "event/card/attrs/val":
+		if event.type == Types.Event.T.CardChoice:
+			if event.card_choice.card.type == Types.Card.T.Building:
+				return event.card_choice.card.building.val
+			if event.card_choice.card.type == Types.Card.T.Enhancement:
+				return event.card_choice.card.enhancement.val
+			if event.card_choice.card.type == Types.Card.T.Resources:
+				return event.card_choice.card.resources.val
 
 func _set(property, val):
 	if not event or val == null:
@@ -88,7 +103,32 @@ func _get_property_list():
 			"hint_string": hint_str,
 			"usage": PROPERTY_USAGE_DEFAULT,
 		})
-	
+		
+		var selection_hint_str : String = ""
+		var val_hint_type = PROPERTY_HINT_NONE
+		if event.card_choice.card.type == Types.Card.T.Building:
+			selection_hint_str = ",".join(Types.Building.T.keys())
+			val_hint_type = PROPERTY_HINT_NONE
+		elif event.card_choice.card.type == Types.Card.T.Enhancement:
+			selection_hint_str = ",".join(Types.Enhancement.T.keys())
+			val_hint_type = PROPERTY_HINT_NONE
+		elif event.card_choice.card.type == Types.Card.T.Resources:
+			selection_hint_str = ",".join(Types.Resources.T.keys())
+			val_hint_type = PROPERTY_HINT_NONE
+
+		property_list.append({
+			"name": "event/card/attrs/selection",
+			"type": TYPE_INT,
+			"hint": PROPERTY_HINT_ENUM,
+			"hint_string": selection_hint_str,
+			"usage": PROPERTY_USAGE_DEFAULT,
+		})
+		property_list.append({
+			"name": "event/card/attrs/val",
+			"type": TYPE_INT,
+			"hint": val_hint_type,
+			"usage": PROPERTY_USAGE_DEFAULT,
+		})
 	
 	return property_list
 
