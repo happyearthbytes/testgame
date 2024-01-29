@@ -2,6 +2,7 @@
 extends TextureButton
 
 var event : Types.Event = Types.Event.new()
+@onready var label = $Label
 
 func _get(property):
 	if not event:
@@ -133,9 +134,10 @@ func _get_property_list():
 	return property_list
 
 func update_label():
-	if not event:
+	if event == null:
 		return
-	$Label.text = str(event)
+	if label != null:
+		label.text = str(event)
 
 func _ready():
 	update_label()
