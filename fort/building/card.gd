@@ -13,10 +13,10 @@ func _get(property):
 	if property == "card/type":
 		return event.type
 	if property == "card/selection":
-		if event.type == Types.EventType.UI:
+		if event.type == Types.Event.T.UI:
 			return event.ui.type
-		if event.type == Types.EventType.CardChoice:
-			return event.card_choice
+		if event.type == Types.Event.T.CardChoice:
+			return event.card_choice.type
 		#if card.type == C.CardType.Building:
 			#return card.building
 		#elif card.type == C.CardType.Enhancement:
@@ -27,8 +27,8 @@ func _get(property):
 			#return card.debug
 
 func _set(property, val):
-	if not event:
-		return
+	if not event or val == null:
+		return false
 	#if property == "card/action":
 		#card.action = val
 	#if property == "card/value":
@@ -37,10 +37,10 @@ func _set(property, val):
 		event.type = val
 		notify_property_list_changed()
 	if property == "card/selection":
-		if event.type == Types.EventType.UI:
+		if event.type == Types.Event.T.UI:
 			event.ui.type = val
-		if event.type == Types.EventType.CardChoice:
-			event.card_choice = val
+		if event.type == Types.Event.T.CardChoice:
+			event.card_choice.type = val
 		#if card.type == C.CardType.Building:
 			#card.building = val
 		#elif card.type == C.CardType.Enhancement:
@@ -54,9 +54,10 @@ func _set(property, val):
 	return true
 
 func _get_property_list():
-	if not event:
-		return
 	var property_list = []
+	if not event:
+		return property_list
+
 	#property_list.append({
 		#"name": "card/action",
 		#"type": TYPE_INT,
@@ -74,14 +75,14 @@ func _get_property_list():
 		"name": "card/type",
 		"type": TYPE_INT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": ",".join(Types.EventType.keys()),
+		"hint_string": ",".join(Types.Event.T.keys()),
 		"usage": PROPERTY_USAGE_DEFAULT,
 	})
 	#
 	var hint_str = ""
-	if event.type == Types.EventType.UI:
+	if event.type == Types.Event.T.UI:
 		hint_str = ",".join(Types.UI.keys())
-	elif event.type == Types.EventType.CardChoice:
+	elif event.type == Types.Event.T.CardChoice:
 		hint_str = ",".join(Types.CardChoice.keys())
 	#if card.type == C.CardType.Building:
 		#hint_str = ",".join(C.Buildings.keys())

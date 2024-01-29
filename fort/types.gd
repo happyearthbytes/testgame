@@ -1,26 +1,126 @@
 extends Node
 class_name Types
 
-enum EventType{
+class Event:
+	enum T{
+		None,
+		Debug,
+		UI,
+		CardChoice,
+	}
+	var type: T
+	var ui: UIEvent = UIEvent.new()
+	var card_choice: CardChoiceEvent = CardChoiceEvent.new()
+	func _init():
+		reset()
+	func reset():
+		type = T.None
+		ui.reset()
+		card_choice.reset()
+	func _to_string():
+		var eventstr : String =  T.keys()[type]
+		var typestr : String = ""
+		if type == T.UI:
+			typestr = str(ui)
+		if type == T.CardChoice:
+			typestr = str(card_choice)
+		return "%s %s" % [ eventstr, typestr]
+
+enum BuildingType{
 	None,
-	Debug,
-	UI,
-	CardChoice,
+	Barracks,
+	ArcheryRange,
+	Gym,
 }
-enum Debug{
+class Building:
+	var type: BuildingType
+	var level: int
+	func _init():
+		reset()
+	func reset():
+		type = BuildingType.None
+		level = 1
+	func _to_string():
+		return BuildingType.keys()[type]
+	
+enum ResourcesType{
 	None,
+	Wood,
+	Stone,
 }
-enum UI{
+class Resources:
+	var type: ResourcesType
+	var amount: int
+	func _init():
+		reset()
+	func reset():
+		type = ResourcesType.None
+		amount = 1
+	func _to_string():
+		return ResourcesType.keys()[type]
+		
+enum EnhancementType{
 	None,
-	Toggle_Select_3,
-	Toggle_Inventory,
+	AddHP,
+	AddSpeed,
 }
+class Enhancement:
+	var type: EnhancementType
+	var amount: int
+	func _init():
+		reset()
+	func reset():
+		type = EnhancementType.None
+		amount = 1
+	func _to_string():
+		return EnhancementType.keys()[type]
+		
+enum CardType{
+	None,
+	Building,
+	Resource,
+	Enhancement,
+}
+class Card:
+	var type: CardType
+	var building: Building
+	var resources: Resources
+	var enhancement: Enhancement
+	func _init():
+		building = Building.new()
+		resources = Resources.new()
+		enhancement = Enhancement.new()
+		reset()
+	func reset():
+		type = CardType.None
+		building.reset()
+		resources.reset()
+		enhancement.reset()
+	func _to_string():
+		return CardChoice.keys()[type]
+
 enum CardChoice{
 	None,
 	Add,
 	Select,
 }
 
+class CardChoiceEvent:
+	var type: CardChoice
+	var card_type: CardType
+	func _init():
+		reset()
+	func reset():
+		type = CardChoice.None
+		card_type = CardType.None
+	func _to_string():
+		return CardChoice.keys()[type]
+
+enum UI{
+	None,
+	Toggle_Select_3,
+	Toggle_Inventory,
+}
 class UIEvent:
 	var type: UI
 	func _init():
@@ -30,25 +130,9 @@ class UIEvent:
 	func _to_string():
 		return UI.keys()[type]
 
-class Event:
-	var type: EventType
-	var ui: UIEvent = UIEvent.new()
-	var card_choice: CardChoice
-	func _init():
-		reset()
-	func reset():
-		type = EventType.None
-		ui.reset()
-		card_choice = CardChoice.None
-	func _to_string():
-		var eventstr : String =  EventType.keys()[type]
-		var typestr : String = ""
-		if type == EventType.UI:
-			typestr = UI.keys()[ui.type]
-		if type == EventType.CardChoice:
-			typestr = CardChoice.keys()[card_choice]
-		return "%s %s" % [ eventstr, typestr]
-
+enum Debug{
+	None,
+}
 #
 #
 #class Card:
