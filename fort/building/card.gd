@@ -39,30 +39,32 @@ func _set(property, val):
 		return false
 	if property == "event/type":            
 		event.type = val
-	if property == "event/selection":
+	elif property == "event/selection":
 		if event.type == Types.Event.T.UI:
 			event.ui.type = val
-		if event.type == Types.Event.T.CardChoice:
+		elif event.type == Types.Event.T.CardChoice:
 			event.card_choice.type = val
-	if property == "event/card/type":
+	elif property == "event/card/type":
 		if event.type == Types.Event.T.CardChoice:
 			event.card_choice.card.type = val
-	if property == "event/card/attrs/selection":
+	elif property == "event/card/attrs/selection":
 		if event.type == Types.Event.T.CardChoice:
 			if event.card_choice.card.type == Types.Card.T.Building:
 				event.card_choice.card.building.type = val
-			if event.card_choice.card.type == Types.Card.T.Enhancement:
+			elif event.card_choice.card.type == Types.Card.T.Enhancement:
 				event.card_choice.card.enhancement.type = val
-			if event.card_choice.card.type == Types.Card.T.Resources:
+			elif event.card_choice.card.type == Types.Card.T.Resources:
 				event.card_choice.card.resources.type = val
-	if property == "event/card/attrs/val":
+	elif property == "event/card/attrs/val":
 		if event.type == Types.Event.T.CardChoice:
 			if event.card_choice.card.type == Types.Card.T.Building:
 				event.card_choice.card.building.val = val
-			if event.card_choice.card.type == Types.Card.T.Enhancement:
+			elif event.card_choice.card.type == Types.Card.T.Enhancement:
 				event.card_choice.card.enhancement.val = val
-			if event.card_choice.card.type == Types.Card.T.Resources:
+			elif event.card_choice.card.type == Types.Card.T.Resources:
 				event.card_choice.card.resources.val = val
+	else:
+		return false
 	notify_property_list_changed()
 	update_label()
 	return true
@@ -132,6 +134,9 @@ func _get_property_list():
 		})
 	
 	return property_list
+
+func add_building(building_node):
+	$CenterContainer.add_child(building_node)
 
 func update_label():
 	if event == null:

@@ -30,7 +30,8 @@ func add_choice(choice : Types.CardChoice):
 		var new_building = C.get_building(choice.card.building)
 		var new_card = card_scene.instantiate()
 		contents.append(new_card)
-		new_card.add_child(new_building)
+		new_card.add_building(new_building)
+		#new_card.add_child(new_building)
 		container.add_child(new_card)
 
 func toggle():
