@@ -7,8 +7,9 @@ func _ready():
 	Sig.event.connect(handle_event)
 
 func handle_event(ev: Types.Event):
-	if ev.ui.type == Types.UI.Toggle_Select_3:
-		toggle()
+	if ev.type == Types.Event.T.UI:
+		if ev.ui.type == Types.UI.T.Toggle_Select_3:
+			toggle()
 	if ev.type == Types.Event.T.CardChoice:
 		print(ev)
 

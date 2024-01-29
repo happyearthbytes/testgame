@@ -29,4 +29,3 @@ autoplay = true
 mix_target = 1
 
 [node name="UI" parent="." instance=ExtResource("7_ywrnn")]
-visible = true

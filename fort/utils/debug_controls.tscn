@@ -45,20 +45,21 @@ alignment = 1
 
 [node name="Card" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
-card/type = 2
-card/selection = 1
+event/type = 2
+event/selection = 1
 
 [node name="Card2" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
-card/type = 2
-card/selection = 2
+event/type = 2
+event/selection = 2
 
 [node name="Card3" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
-card/type = 3
-card/selection = 2
+event/type = 3
+event/selection = 2
+event/card/type = 2
 
 [node name="Card4" parent="MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("2_slvbd")]
 layout_mode = 2
-card/type = 0
-card/selection = null
+event/type = 0
+event/selection = null

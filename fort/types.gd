@@ -9,8 +9,8 @@ class Event:
 		CardChoice,
 	}
 	var type: T
-	var ui: UIEvent = UIEvent.new()
-	var card_choice: CardChoiceEvent = CardChoiceEvent.new()
+	var ui: UI = UI.new()
+	var card_choice: CardChoice = CardChoice.new()
 	func _init():
 		reset()
 	func reset():
@@ -18,71 +18,77 @@ class Event:
 		ui.reset()
 		card_choice.reset()
 	func _to_string():
-		var eventstr : String =  T.keys()[type]
+		var tstr : String =  T.keys()[type]
 		var typestr : String = ""
 		if type == T.UI:
 			typestr = str(ui)
 		if type == T.CardChoice:
 			typestr = str(card_choice)
-		return "%s %s" % [ eventstr, typestr]
+		return "%s %s" % [ tstr, typestr ]
 
-enum BuildingType{
-	None,
-	Barracks,
-	ArcheryRange,
-	Gym,
-}
 class Building:
-	var type: BuildingType
-	var level: int
+	enum T{
+		None,
+		Barracks,
+		ArcheryRange,
+		Gym,
+	}
+	var type: T
+	var val: int
 	func _init():
 		reset()
 	func reset():
-		type = BuildingType.None
-		level = 1
+		type = T.None
+		val = 1
 	func _to_string():
-		return BuildingType.keys()[type]
+		var tstr : String =  T.keys()[type]
+		var vstr : String = str(val)
+		return "%s %s" %[tstr, vstr]
 	
-enum ResourcesType{
-	None,
-	Wood,
-	Stone,
-}
 class Resources:
-	var type: ResourcesType
-	var amount: int
+	enum T{
+		None,
+		Wood,
+		Stone,
+	}
+	var type: T
+	var val: int
 	func _init():
 		reset()
 	func reset():
-		type = ResourcesType.None
-		amount = 1
+		type = T.None
+		val = 1
 	func _to_string():
-		return ResourcesType.keys()[type]
-		
-enum EnhancementType{
-	None,
-	AddHP,
-	AddSpeed,
-}
+		var tstr : String =  T.keys()[type]
+		var vstr : String = str(val)
+		return "%s %s" %[tstr, vstr]
+
 class Enhancement:
-	var type: EnhancementType
-	var amount: int
+	enum T{
+		None,
+		AddHP,
+		AddSpeed,
+	}
+	var type: T
+	var val: int
 	func _init():
 		reset()
 	func reset():
-		type = EnhancementType.None
-		amount = 1
+		type = T.None
+		val = 1
 	func _to_string():
-		return EnhancementType.keys()[type]
+		var tstr : String =  T.keys()[type]
+		var vstr : String = str(val)
+		return "%s %s" %[tstr, vstr]
 		
-enum CardType{
-	None,
-	Building,
-	Resource,
-	Enhancement,
-}
 class Card:
-	var type: CardType
+	enum T{
+		None,
+		Building,
+		Resources,
+		Enhancement,
+	}
+	var type: T
 	var building: Building
 	var resources: Resources
 	var enhancement: Enhancement
@@ -92,47 +98,69 @@ class Card:
 		enhancement = Enhancement.new()
 		reset()
 	func reset():
-		type = CardType.None
+		type = T.None
 		building.reset()
 		resources.reset()
 		enhancement.reset()
 	func _to_string():
-		return CardChoice.keys()[type]
+		var tstr : String =  T.keys()[type]
+		var cardstr : String = ""
+		if type == T.Building:
+			cardstr = str(building)
+		if type == T.Resources:
+			cardstr = str(resources)
+		if type == T.Enhancement:
+			cardstr = str(enhancement)
+		return "%s %s" %[tstr, cardstr]
 
-enum CardChoice{
-	None,
-	Add,
-	Select,
-}
+class CardChoice:
+	enum T{
+		None,
+		Add,
+		Select,
+	}
+	var type: T
+	var card: Card
+	func _init():
+		card = Card.new()
+		reset()
+	func reset():
+		type = T.None
+		card.reset()
+	func _to_string():
+		var tstr : String =  T.keys()[type]
+		var vstr : String = str(card)
+		return "%s %s" %[tstr, vstr]
 
-class CardChoiceEvent:
-	var type: CardChoice
-	var card_type: CardType
+class UI:
+	enum T{
+		None,
+		Toggle_Select_3,
+		Toggle_Inventory,
+	}
+	var type: T
 	func _init():
 		reset()
 	func reset():
-		type = CardChoice.None
-		card_type = CardType.None
+		type = T.None
 	func _to_string():
-		return CardChoice.keys()[type]
+		var tstr : String =  T.keys()[type]
+		return "%s" %[tstr]
 
-enum UI{
-	None,
-	Toggle_Select_3,
-	Toggle_Inventory,
-}
-class UIEvent:
-	var type: UI
+class Debug:
+	enum T{
+		None,
+
+	}
+	var type: T
 	func _init():
 		reset()
 	func reset():
-		type = UI.None
+		type = T.None
 	func _to_string():
-		return UI.keys()[type]
+		var tstr : String =  T.keys()[type]
+		return "%s" %[tstr]
 
-enum Debug{
-	None,
-}
 #
 #
 #class Card:
